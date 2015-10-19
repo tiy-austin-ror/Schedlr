@@ -11,11 +11,13 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 
+gem 'devise'
 gem 'faker'
 gem 'kaminari'
-gem 'devise'
+gem 'bcrypt'
+
 gem "pundit"
-gem "pundit"
+
 
 group :development, :test do
   gem 'pry'
@@ -25,6 +27,7 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
+
 
 
 group :production do
