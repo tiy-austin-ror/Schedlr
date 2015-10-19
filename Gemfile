@@ -45,7 +45,7 @@ group :development do
   gem 'spring'
 end
 
-
+gem 'devise'
 gem 'faker'
 gem 'kaminari'
 gem 'bcrypt'
