@@ -1,3 +1,3 @@
 MandrillDM.configure do |config|
-  config.api_key = ENV[MANDRILL_APIKEY]
+  config.api_key = ENV['MANDRILL_APIKEY']
 end
