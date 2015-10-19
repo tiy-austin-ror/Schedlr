@@ -1,12 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :companies do
-    resources :users
-  end
-  devise_scope :user do
-    get "/login" => "devise/sessions#new"
-  end
-
+  resources :companies
   resources :events
   resources :rooms
   resources :buildings
