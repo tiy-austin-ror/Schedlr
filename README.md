@@ -7,7 +7,10 @@
 
   - Clone
   - Bundle Install
-  - Run `rake db:setup`
+  - If the project already has migrations
+    - Run `rake db:setup`
+  - If the project is brand new
+    - Run `rake db:create`
 
 ## Steps to deploy
 
