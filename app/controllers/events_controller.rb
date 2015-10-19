@@ -28,7 +28,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        UserMailer.room_confirm(@user, @room).deliver_now
+        UserMailer.room_confirm("Michelle", 2).deliver_now
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
