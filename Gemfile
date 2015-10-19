@@ -7,11 +7,18 @@ gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.5'
 
+gem 'figaro'
+gem 'mandrill_dm'
+gem 'faker'
+gem 'kaminari'
+gem 'bcrypt'
+
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 
-
+gem 'devise'
+gem 'react-rails'
 gem "pundit"
 
 group :development, :test do
@@ -23,13 +30,7 @@ group :development do
   gem 'spring'
 end
 
-gem 'devise'
-gem 'faker'
-gem 'kaminari'
-gem 'bcrypt'
-
 group :production do
   gem 'puma'
   gem 'rails_12factor'
 end
-
