@@ -14,6 +14,7 @@ gem 'turbolinks'
 gem 'faker'
 gem 'kaminari'
 gem 'devise'
+gem "pundit"
 
 group :development, :test do
   gem 'pry'
@@ -28,4 +29,3 @@ group :production do
   gem 'puma'
   gem 'rails_12factor'
 end
-
