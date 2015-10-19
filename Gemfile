@@ -11,8 +11,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 
-gem 'faker'
-gem 'kaminari'
 gem 'devise'
 gem "pundit"
 
@@ -25,20 +23,13 @@ group :development do
   gem 'spring'
 end
 
-<<<<<<< HEAD
 gem 'figaro'
 gem 'mandrill_dm'
 gem 'faker'
 gem 'kaminari'
 gem 'bcrypt'
-=======
->>>>>>> upstream/master
+
 group :production do
   gem 'puma'
   gem 'rails_12factor'
 end
-<<<<<<< HEAD
-
-gem 'bootstrap-sass', '~> 3.3.5'
-=======
->>>>>>> upstream/master
