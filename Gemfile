@@ -12,6 +12,7 @@ gem 'mandrill_dm'
 gem 'faker'
 gem 'kaminari'
 gem 'bcrypt'
+gem "puma"
 
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'

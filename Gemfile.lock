@@ -107,6 +107,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    puma (2.14.0)
     pundit (1.0.1)
       activesupport (>= 3.0.0)
     rack (1.6.4)
@@ -193,6 +194,7 @@ DEPENDENCIES
   mandrill_dm
   pg
   pry
+  puma
   pundit
   rails (= 4.2.4)
   react-rails
