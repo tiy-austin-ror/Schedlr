@@ -14,6 +14,8 @@ gem 'turbolinks'
 gem 'faker'
 gem 'kaminari'
 gem 'devise'
+gem "pundit"
+gem "pundit"
 
 group :development, :test do
   gem 'pry'
@@ -25,13 +27,7 @@ group :development do
 end
 
 
-gem "pundit"
-
-
 group :production do
   gem 'puma'
   gem 'rails_12factor'
 end
-
-
-gem 'bootstrap-sass', '~> 3.3.5'
