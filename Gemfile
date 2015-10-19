@@ -11,9 +11,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 
-gem 'faker'
-gem 'kaminari'
-gem 'devise'
+
 gem "pundit"
 
 group :development, :test do
@@ -25,7 +23,13 @@ group :development do
   gem 'spring'
 end
 
+gem 'devise'
+gem 'faker'
+gem 'kaminari'
+gem 'bcrypt'
+
 group :production do
   gem 'puma'
   gem 'rails_12factor'
 end
+
