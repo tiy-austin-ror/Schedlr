@@ -24,20 +24,14 @@ group :development do
   gem 'spring'
 end
 
-<<<<<<< HEAD
+
 gem "pundit"
 
-gem 'faker'
-gem 'kaminari'
-gem 'bcrypt'
-=======
->>>>>>> upstream/master
+
 group :production do
   gem 'puma'
   gem 'rails_12factor'
 end
 
-<<<<<<< HEAD
+
 gem 'bootstrap-sass', '~> 3.3.5'
-=======
->>>>>>> upstream/master
