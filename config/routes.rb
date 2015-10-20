@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :buildings
   resources :sites
 
+  get '/users' => 'users#index'
 
-   root 'companies#index'
+  root 'companies#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
