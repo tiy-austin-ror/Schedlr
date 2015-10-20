@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
   has_many   :events
   belongs_to :company
   has_many   :rooms, through: :events
+
+  def full_name
+    first_name + " " + last_name
+  end
 end

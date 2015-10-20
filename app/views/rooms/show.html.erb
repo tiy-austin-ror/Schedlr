@@ -28,7 +28,7 @@
   <tbody>
     <% @room.events.each do |event| %>
       <tr>
-        <td><%= event.user_id %></td>
+        <td><%= event.user.full_name %></td>
         <td><%= event.start_time %></td>
         <td><%= event.duration %></td>
         <td><%= event.description %></td>
@@ -38,7 +38,7 @@
   </tbody>
 </table>
 
-<td><%= react_component('ScheduleEventForm', userID: 1, roomID: room.id ) %></td>
+<%= render partial: 'events/form' %>
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
