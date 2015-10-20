@@ -15,9 +15,6 @@
   <%= @room.building.name %>
 </p>
 
-<<<<<<< HEAD
-<td><%= react_component('ScheduleEventForm', userID: 1, roomID: room.id ) %></td>
-=======
 <table>
   <thead>
     <tr>
@@ -41,7 +38,9 @@
     <th colspan="5"></th>
   </tbody>
 </table>
->>>>>>> upstream/master
+
+<td><%= react_component('ScheduleEventForm', userID: 1, roomID: room.id ) %></td>
+
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
