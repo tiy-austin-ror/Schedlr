@@ -50,6 +50,7 @@ var ScheduleEventForm = React.createClass({
               onChange={this.changeDescription}
               value={this.state.Description}
               className={this.state.className}/>
+
             <div className='btn btn-default' onClick={this.handleClick}>Schedule An Event!</div>
           </div>
         );
