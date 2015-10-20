@@ -16,12 +16,17 @@
 
 <p>
   <strong>Room:</strong>
-  <%= @event.room %>
+  <%= @event.room.name %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @event.user %>
+  <strong>Event created by:</strong>
+  <%= @event.user.first_name %> <%= @event.user.last_name %>
+</p>
+
+<p>
+  <strong>Choose your invitees:</strong>
+  <!-- <%# @event.invitees %> -->
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

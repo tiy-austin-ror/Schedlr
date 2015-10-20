@@ -1,0 +1,13 @@
+Dear <%= @user.first_name %> <%= @user.last_name %>,
+
+  You have been invited to attend this special event:
+  <%= event.start_time %>
+  <%= event.duration %>
+  <%= event.description %>
+  <%= event.room.name %>
+
+  Please RSVP by visiting <%= link_to 'RSVP', rsvp_url %>
+ <!-- or do we use  <%# rsvp_url(@event, host: 'https://rustworks-schedlr.herokuapp.com/rsvp') %> -->
+
+  If you have any questions, please contact <%= user_createdevent.first_name %> <%= user_createdevent.last_name %>
+  at <%= user_createdevent.email %>.

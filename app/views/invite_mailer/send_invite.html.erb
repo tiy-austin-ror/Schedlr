@@ -1,0 +1,16 @@
+<h2>You have been invited to attend this special event: </h2>
+<h3>Dear <%= @user.first_name %> <%= @user.last_name %>, </h3>
+<p>
+  You have been invited to attend this special event:
+  <%= event.start_time %>
+  <%= event.duration %>
+  <%= event.description %>
+  <%= event.room.name %>
+</p>
+
+
+<h4>Please RSVP by visiting <%= link_to 'RSVP', rsvp_url %> </h4>
+<p>
+  If you have any questions, please contact <%= user_createdevent.first_name %> <%= user_createdevent.last_name %>
+  at <%= user_createdevent.email %>
+</p>
