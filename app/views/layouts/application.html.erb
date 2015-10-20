@@ -10,6 +10,10 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <%= yield %>
+<p><%= link_to 'Log In', new_user_session_path %></p>
+<p><%= link_to 'Log Out', logout_path, method: :delete %></p>
+<p><%= link_to 'Sign Up', new_user_registration_path %></p>
+
 
 </body>
 </html>
