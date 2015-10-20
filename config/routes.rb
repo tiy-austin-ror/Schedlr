@@ -9,9 +9,7 @@ Rails.application.routes.draw do
   resources :rooms
   resources :buildings
   resources :sites
-
+  get '/admin' => 'dashboard#index'
   get '/users' => 'users#index'
-
   root 'companies#index'
-
 end
