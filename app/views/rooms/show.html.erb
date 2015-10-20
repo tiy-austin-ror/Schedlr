@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
@@ -38,6 +37,8 @@
     <th colspan="5"></th>
   </tbody>
 </table>
+
+<td><%= react_component('ScheduleEventForm', userID: 1, roomID: room.id ) %></td>
 
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
