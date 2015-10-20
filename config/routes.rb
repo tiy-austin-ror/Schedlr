@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :invitees
-  resources :invites
   devise_for :users
   devise_scope :user do
     delete "/logout" => "devise/sessions#destroy"
