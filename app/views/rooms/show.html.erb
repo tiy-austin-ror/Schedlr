@@ -1,44 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col"
+      <p>
+        <strong>Room Name:</strong>
+        <%= @room.name %>
+      </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @room.name %>
-</p>
+      <p>
+        <strong>Capacity:</strong>
+        <%= @room.capacity %>
+      </p>
 
-<p>
-  <strong>Capacity:</strong>
-  <%= @room.capacity %>
-</p>
+      <p>
+        <strong>Building:</strong>
+        <%= @room.building.name %>
+      </p>
+    </div>
+  </div>
 
-<p>
-  <strong>Building:</strong>
-  <%= @room.building.name %>
-</p>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Who Made The Reservation</th>
+          <th>Start Time</th>
+          <th>Duration</th>
+          <th>Description</th>
+        </tr>
+      </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Start Time</th>
-      <th>Duration</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @room.events.each do |event| %>
-      <tr>
-        <td><%= event.user.full_name %></td>
-        <td><%= event.start_time %></td>
-        <td><%= event.duration %></td>
-        <td><%= event.description %></td>
-      </tr>
-    <% end %>
-    <th colspan="5"></th>
-  </tbody>
-</table>
-
-<td><%= react_component('ScheduleEventForm', userID: 1, roomID: room.id ) %></td>
-
+      <tbody>
+        <% @room.events.each do |event| %>
+          <tr>
+            <td><center><%= event.user.full_name %></center></td>
+            <td><%= event.start_time %></td>
+            <td><%= event.duration %></td>
+            <td><%= event.description %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <td><%= react_component('ScheduleEventForm', userID: 1, roomID: room.id ) %></td>
+</div>
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
