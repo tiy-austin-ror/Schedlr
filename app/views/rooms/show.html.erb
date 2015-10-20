@@ -33,7 +33,7 @@
         <% @room.events.each do |event| %>
           <tr>
             <td><center><%= event.user.full_name %></center></td>
-            <td><%= event.start_time %></td>
+            <td><%= event.start_time.strftime("%B %d, %Y @ %I:%M%P") %></td> <!--helpful resource - https://hackhands.com/format-datetime-ruby/-->
             <td><%= event.duration %></td>
             <td><%= event.description %></td>
           </tr>
