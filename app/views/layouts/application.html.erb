@@ -17,15 +17,11 @@
 </ul>
 
     <div class='container'>
-      <div class='row'>
-        <div class='col-xs-12'>
-          <main>
-            <center><%= yield %></center>
-          </main>
-        </div>
-      </div>
+      <main>
+        <center><%= yield %></center>
+      </main>
     </div>
-    </div>
+
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>

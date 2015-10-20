@@ -18,9 +18,9 @@
             <td><p class="text-capitalize"><%= room.name %></p></td>
             <td><%= room.capacity %></td>
             <td><p class="text-capitalize"><%= room.building.name %></p></td>
-            <td><%= link_to 'Show', room %></td>
-            <td><%= link_to 'Edit', edit_room_path(room) %></td>
-            <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><button class="btn btn-default" type="submit"><%= link_to 'Show', room %></button></td>
+            <td><button class="btn btn-default" type="submit"><%= link_to 'Edit', edit_room_path(room) %></button></td>
+            <td><button class="btn btn-default" type="submit"><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
           </tr>
         <% end %>
       </tbody>
