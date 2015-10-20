@@ -9,18 +9,21 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
-<p><%= link_to 'Log In', new_user_session_path %></p>
-<p><%= link_to 'Log Out', logout_path, method: :delete %></p>
-<p><%= link_to 'Sign Up', new_user_registration_path %></p>
-<p><%= link_to 'Admin', admin_path %></p>
+<ul class="nav nav-tabs">
+  <li><button class="btn btn-default" type="submit"><%= link_to 'Log In' , new_user_session_path %></button></li>
+  <li><button class="btn btn-default" type="submit"><%= link_to 'Log Out', logout_path, method: :delete %></button></li>
+  <li><button class="btn btn-default" type="submit"><%= link_to 'Sign Up', new_user_registration_path %></button></li>
+  <li><button class="btn btn-default" type="submit"><%= link_to 'Admin'  , admin_path %></button></li>
+</ul>
 
     <div class='container'>
-      <div class='col-md-4'>
-        <main>
-          <%= yield %>
-        </main>
-      </div>
+
+      <main>
+        <center><%= yield %></center>
+      </main>
+
     </div>
+
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
