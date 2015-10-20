@@ -11,48 +11,22 @@ var InviteButton = React.createClass({
         method: "POST",
         dataType: "JSON",
         data: {
-          event: {
+          invitee: {
             user_id: this.props.userID,
-            room_id: this.props.roomID,
-            duration: this.state.Duration,
-            description: this.state.Description
+            event_id: this.props.eventID,
           }
         }
           }).done(function () {
-          this.setState({ scheduled: true });
+          this.setState({ invited: false });
           }.bind(this));
   },
 
-  changeDuration: function (e) {
-    this.setState({ Duration: e.target.value });
-  },
-
-  changeDescription: function (e) {
-    this.setState({ Description: e.target.value });
-  },
-
   render: function () {
-    if (this.state.scheduled) {
-        return (<div className=''>Event Scheduled!</div>);
+    if (this.state.invited) {
+        return (<div className=''>Employee Invited!</div>);
     } else {
         return (
-          <div className='form'>
-            <label htmlFor='Start'>Duration</label>
-            <input id='Start' placeholder={'Enter duration'}
-                size="50" type="integer"
-                onChange={this.changeDuration}
-                value={this.state.Duration}
-                className={this.state.className}/>
-
-              <label htmlFor='Start'>Description</label>
-            <input id='Description' placeholder={'Describe your event'}
-              size="50" type="string"
-              onChange={this.changeDescription}
-              value={this.state.Description}
-              className={this.state.className}/>
-
-            <div className='btn btn-default' onClick={this.handleClick}>Schedule An Event!</div>
-          </div>
+            <div className='btn btn-default' onClick={this.handleClick}>Invite Employee!</div>
         );
     }
   }
