@@ -1,17 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="col"
-      <p>
+    <div class="colspan-3">
+      <p class="text-left">
         <strong>Room Name:</strong>
         <%= @room.name %>
       </p>
 
-      <p>
+      <p class="text-left">
         <strong>Capacity:</strong>
         <%= @room.capacity %>
       </p>
 
-      <p>
+      <p class="text-left">
         <strong>Building:</strong>
         <%= @room.building.name %>
       </p>
@@ -32,9 +32,9 @@
       <tbody>
         <% @room.events.each do |event| %>
           <tr>
-            <td><center><%= event.user.full_name %></center></td>
+            <td><center><p class="text-capitalize"><%= event.user.full_name %></p></center></td>
             <td><%= event.start_time.strftime("%B %d, %Y @ %I:%M%P") %></td> <!--helpful resource - https://hackhands.com/format-datetime-ruby/-->
-            <td><%= event.duration %></td>
+            <td><%= "#{event.duration}" + " minutes" %></td>
             <td><%= event.description %></td>
           </tr>
         <% end %>
