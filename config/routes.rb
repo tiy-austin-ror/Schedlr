@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :buildings
   resources :sites
 
+  get '/users' => 'users#index'
 
-   root 'companies#index'
+  root 'companies#index'
 
 end
