@@ -24,7 +24,8 @@ class InviteesController < ApplicationController
     @invitee = Invitee.new(invitee_params)
 
     if @invitee.save
-      redirect_to @invitee, notice: 'Invitee was successfully created.'
+      InviteMailer.send_invite(@invitee).deliver_now
+      redirect_to :back, notice: 'Invitee was successfully created.'
     else
       render :new
     end
