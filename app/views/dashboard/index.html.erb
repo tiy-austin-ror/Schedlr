@@ -9,7 +9,7 @@
         <tr>
           <th>Name</th>
           <th>Capacity</th>
-          <th>Building</th>
+          <th>Building.name</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -19,7 +19,7 @@
           <tr>
             <td><%= room.name %></td>
             <td><%= room.capacity %></td>
-            <td><%= room.building %></td>
+            <td><%= room.building.name %></td>
             <td><%= link_to 'Show', room %></td>
             <td><%= link_to 'Edit', edit_room_path(room) %></td>
           </tr>
@@ -47,7 +47,7 @@
             <td><%= event.start_time %></td>
             <td><%= event.duration %></td>
             <td><%= event.description %></td>
-            <td><%= event.room %></td>
+            <td><%= event.room.name %></td>
             <td><%= link_to 'Show', event %></td>
             <td><%= link_to 'Edit', edit_event_path(event) %></td>
           </tr>
