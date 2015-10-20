@@ -7,6 +7,6 @@ class SitePolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin? or not post.published?
+    user.admin?
   end
 end
