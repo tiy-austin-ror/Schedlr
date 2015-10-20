@@ -12,7 +12,6 @@ gem 'mandrill_dm'
 gem 'faker'
 gem 'kaminari'
 gem 'bcrypt'
-gem "puma"
 
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
@@ -29,4 +28,9 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+end
+
+group :production do
+  gem 'puma'
+  gem 'rails_12factor'
 end

@@ -197,6 +197,10 @@ DEPENDENCIES
   puma
   pundit
   rails (= 4.2.4)
+<<<<<<< HEAD
+=======
+  rails_12factor
+>>>>>>> upstream/master
   react-rails
   sass-rails (~> 5.0)
   spring
