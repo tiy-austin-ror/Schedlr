@@ -15,11 +15,14 @@
 <p><%= link_to 'Admin', admin_path %></p>
 
     <div class='container'>
-      <div class='col-md-4'>
-        <main>
-          <%= yield %>
-        </main>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <main>
+            <center><%= yield %></center>
+          </main>
+        </div>
       </div>
+    </div>
     </div>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
