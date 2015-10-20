@@ -24,19 +24,19 @@
   <%= @event.user.first_name %> <%= @event.user.last_name %>
 </p>
 
-<p>
-  <strong>Choose your invitees:</strong><br>
-
-  <% @event.user.company.users.each do |user| %>
-  <%= user.first_name %> <%= user.last_name %>
-  <%= react_component('InviteButton', userID: 1, eventID: @event.id ) %>
+<tbody>
+  <tr>
+    <strong>Choose your invitees:</strong><br>
+      <td><% @event.user.company.users.each do |user| %></td>
+      <td><%= user.first_name %> <%= user.last_name %></td>
+      <td><%= react_component('InviteButton', userID: 1, eventID: @event.id ) %></td>
   <!-- REACT HERE
   <%# link_to('Invite User', new_invite_path(invite: {user_id: current_user.id,
     event_id: @event.id, accepted: false}), class: 'btn btn-info btn-xs',
     method: :POST)%> -->
-  <% end %>
-
-</p>
+  </tr>
+    <% end %>
+</tbody>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
