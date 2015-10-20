@@ -3,7 +3,7 @@ class SitePolicy < ApplicationPolicy
 
   def initialize(user, site)
     @user = user
-    @room = site
+    @site = site
   end
 
   def create?
