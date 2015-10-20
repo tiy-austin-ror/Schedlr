@@ -25,20 +25,16 @@
 </p>
 
 <p>
-  <strong>Choose your invitees:</strong>
+  <strong>Choose your invitees:</strong><br>
 
   <% @event.user.company.users.each do |user| %>
   <%= user.first_name %> <%= user.last_name %>
-  <%= link_to('Invite User', rsvp_path(invitee: {user_id: current_user.id, 
-    event_id: event.id, accepted: false}), class: 'btn btn-info btn-xs',
-    method: :POST)%>
+  <%= react_component('InviteButton', userID: 1, eventID: @event.id ) %>
+  <!-- REACT HERE
+  <%# link_to('Invite User', new_invite_path(invite: {user_id: current_user.id,
+    event_id: @event.id, accepted: false}), class: 'btn btn-info btn-xs',
+    method: :POST)%> -->
   <% end %>
-
-  <%= link_to('Add To Order', lineitems_path(lineitem:
-                    { item_id: item.id, qty: 1,
-                    order_id: current_user.current_order.id }),
-
-                    method: :POST) %>
 
 </p>
 
