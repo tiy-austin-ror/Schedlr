@@ -5,10 +5,11 @@ Company.create({
         admin = User.new({
           first_name:   Faker::Name.first_name,
           last_name:    Faker::Name.last_name,
-          email:        Faker::Internet.safe_email,
+          email:        "admin@example.com",
           department:   Faker::Commerce.department,
           admin:        true,
-          company_id:   1 })
+          company_id:   1
+        })
 
           admin.password = "password"
           admin.save!
@@ -20,10 +21,10 @@ Company.create({
                   email:        Faker::Internet.safe_email,
                   department:   Faker::Team.state,
                   admin:        false,
-                  company_id:   1 })
-
-                    user.password = "password"
-                    user.save!
+                  company_id:   1
+          })
+          user.password = "password"
+          user.save!
 
           2.times do
             site = Site.create({
