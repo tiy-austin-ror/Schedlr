@@ -7,6 +7,6 @@ class RoomPolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin?
+    user.admin? && user.company.id == room.building.site.company.id
   end
 end
