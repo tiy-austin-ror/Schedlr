@@ -52,7 +52,8 @@
                       duration:     rand(30..60),
                       description:  Faker::Lorem.sentence,
                       room_id:      room.id,
-                      user_id:      user.id })
+                      user_id:      user.id,
+                      private:      false})
 
                 Attendee.create({
                       event_id: event.id,
