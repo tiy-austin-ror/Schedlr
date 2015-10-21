@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   get '/pdf' => 'events#index'
   get '/events_csv' => 'events#index'
   root 'companies#index'
+
 end
