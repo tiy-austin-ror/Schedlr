@@ -1,4 +1,7 @@
 # Schedulr
+[![Build Status](https://travis-ci.org/tiy-austin-ror/Schedlr.svg)](https://travis-ci.org/tiy-austin-ror/Schedlr)
+[![Code Climate](https://codeclimate.com/github/tiy-austin-ror/Schedlr/badges/gpa.svg)](https://codeclimate.com/github/tiy-austin-ror/Schedlr)
+[![Test Coverage](https://codeclimate.com/github/tiy-austin-ror/Schedlr/badges/coverage.svg)](https://codeclimate.com/github/tiy-austin-ror/Schedlr/coverage)
 
 ## Description
 
