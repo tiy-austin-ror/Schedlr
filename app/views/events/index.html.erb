@@ -16,14 +16,14 @@
     <tbody>
       <% @events.each do |event| %>
         <tr>
-          <td><%= event.start_time.strftime("%B %d, %Y @ %I:%M%P") %></td>
-          <td><%= "#{event.duration} minutes" %></td>
+          <td><%= event.formatted_start_time %></td>
+          <td><%= event.formatted_event_duration %></td>
           <td><%= event.description %></td>
-          <td><%= event.room.name %></td>
-          <td><%= event.user.full_name %></td>
-          <td><button class="btn btn-default" type="submit"><%= link_to 'Show', event %></button></td>
-          <td><button class="btn btn-default" type="submit"><%= link_to 'Edit', edit_event_path(event) %></button></td>
-          <td><button class="btn btn-default" type="submit"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+          <td><%= event.room.name.titleize %></td>
+          <td><%= event.user.full_name.titleize %></td>
+          <td><%= link_to 'Show', event, class: "btn btn-default" %></button></td>
+          <td><%= link_to 'Edit', edit_event_path(event), class: "btn btn-default" %></td>
+          <td><%= link_to 'Destroy', event, class: "btn btn-default", method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>

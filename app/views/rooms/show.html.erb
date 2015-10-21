@@ -2,7 +2,7 @@
     <div class="colspan-3">
       <p class="text-left">
         <strong>Room Name:</strong>
-        <%= @room.name %>
+        <%= @room.name.titleize %>
       </p>
 
       <p class="text-left">
@@ -12,7 +12,7 @@
 
       <p class="text-left">
         <strong>Building:</strong>
-        <%= @room.building.name %>
+        <%= @room.building.name.titleize %>
       </p>
     </div>
 
@@ -30,10 +30,12 @@
       <tbody>
         <% @room.events.each do |event| %>
           <tr>
-            <td><center><p class="text-capitalize"><%= event.user.full_name %></p></center></td>
-            <td><%= link_to "#{event.start_time.strftime("%B %d, %Y @ %I:%M%P")}", event %></td> <!--helpful resource - https://hackhands.com/format-datetime-ruby/-->
-            <td><%= link_to "#{event.duration} minutes", event %></td>
-            <td><%= link_to "#{event.description}", event %></td>
+            <%= link_to event do %>
+              <td><%= event.user.full_name.titleize %></td>
+              <td><%= link_to event.formatted_start_time %></td> <!--helpful resource - https://hackhands.com/format-datetime-ruby/-->
+              <td><%= link_to event.formatted_event_duration %></td>
+              <td><%= link_to event.description %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

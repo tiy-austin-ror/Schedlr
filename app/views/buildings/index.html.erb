@@ -18,15 +18,15 @@
     <tbody>
       <% @buildings.each do |building| %>
         <tr>
-          <td><p class="text-capitalize"><%= building.name %></p></td>
-          <td><p class="text-capitalize"><%= building.street %></p></td>
-          <td><p class="text-capitalize"><%= building.city %></p></td>
-          <td><p class="text-capitalize"><%= building.state %></p></td>
+          <td><%= building.name.titleize %></td>
+          <td><%= building.street.titleize %></td>
+          <td><%= building.city.titleize %></td>
+          <td><%= building.state.titleize %></td>
           <td><%= building.zip %></td>
-          <td><p class="text-capitalize"><%= building.site.name %></p></td>
-          <td><button class="btn btn-default" type="submit"><%= link_to 'Show', building %></button></td>
-          <td><button class="btn btn-default" type="submit"><%= link_to 'Edit', edit_building_path(building) %></button></td>
-          <td><button class="btn btn-default" type="submit"><%= link_to 'Destroy', building, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+          <td><%= building.site.name.titleize %></td>
+          <td><%= link_to 'Show', building, class: "btn btn-default" %></td>
+          <td><%= link_to 'Edit', edit_building_path(building), class: "btn btn-default" %></td>
+          <td><%= link_to 'Destroy', building, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
         </tr>
       <% end %>
     </tbody>

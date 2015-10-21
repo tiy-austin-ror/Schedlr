@@ -1,12 +1,12 @@
 
 <p>
   <strong>Start time:</strong>
-  <%= @event.start_time.strftime("%B %d, %Y @ %I:%M%P") %>
+  <%= @event.formatted_start_time %>
 </p>
 
 <p>
   <strong>Duration:</strong>
-  <%= "#{@event.duration}" + " minutes"%>
+  <%= @event.formatted_event_duration %>
 </p>
 
 <p>
@@ -16,19 +16,19 @@
 
 <p>
   <strong>Room Name:</strong>
-  <%= @event.room.name %>
+  <%= @event.room.name.titleize %>
 </p>
 
 <p>
   <strong>Event created by:</strong>
-  <%= @event.user.full_name %>
+  <%= @event.user.full_name.titleize %>
 </p>
 
 <tbody>
   <tr>
     <strong>Choose your invitees:</strong><br>
       <td><% @event.user.company.users.each do |user| %></td>
-      <td><%= user.first_name %> <%= user.last_name %></td>
+      <td><%= user.full_name %></td>
       <td><%= react_component('InviteButton', userID: user.id, eventID: @event.id ) %></td>
   </tr>
     <% end %>

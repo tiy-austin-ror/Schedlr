@@ -16,10 +16,10 @@
       <tbody>
         <% @users.each do |user| %>
           <tr>
-            <td><%= user.first_name %></td>
-            <td><%= user.last_name %></td>
+            <td><%= user.first_name.titleize %></td>
+            <td><%= user.last_name.titleize %></td>
             <td><%= user.email %></td>
-            <td><%= user.department %></td>
+            <td><%= user.department.titleize %></td>
           </tr>
         <% end %>
       </tbody>

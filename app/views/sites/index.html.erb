@@ -14,12 +14,12 @@
     <tbody>
       <% @sites.each do |site| %>
         <tr>
-          <td><%= site.name %></td>
+          <td><%= site.name.titleize %></td>
           <td><%= site.location %></td>
-          <td><%= site.company.name %></td>
-          <td><button class="btn btn-default" type="submit"><%= link_to 'Show', site %></button></td>
-          <td><button class="btn btn-default" type="submit"><%= link_to 'Edit', edit_site_path(site) %></button></td>
-          <td><button class="btn btn-default" type="submit"><%= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+          <td><%= site.company.name.titleize %></td>
+          <td><%= link_to 'Show', site, class: "btn btn-default" %></td>
+          <td><%= link_to 'Edit', edit_site_path(site), class: "btn btn-default" %></td>
+          <td><%= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
         </tr>
       <% end %>
     </tbody>
