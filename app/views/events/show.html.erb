@@ -1,12 +1,12 @@
 
 <p>
   <strong>Start time:</strong>
-  <%= @event.start_time %>
+  <%= @event.start_time.strftime("%B %d, %Y @ %I:%M%P") %>
 </p>
 
 <p>
   <strong>Duration:</strong>
-  <%= @event.duration %>
+  <%= "#{@event.duration}" + " minutes"%>
 </p>
 
 <p>
@@ -15,13 +15,13 @@
 </p>
 
 <p>
-  <strong>Room:</strong>
-  <%= @event.room %>
+  <strong>Room Name:</strong>
+  <%= @event.room.name %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @event.user %>
+  <%= @event.user.full_name %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |

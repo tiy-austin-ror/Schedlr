@@ -31,9 +31,9 @@
         <% @room.events.each do |event| %>
           <tr>
             <td><center><p class="text-capitalize"><%= event.user.full_name %></p></center></td>
-            <td><%= event.start_time.strftime("%B %d, %Y @ %I:%M%P") %></td> <!--helpful resource - https://hackhands.com/format-datetime-ruby/-->
-            <td><%= "#{event.duration}" + " minutes" %></td>
-            <td><%= event.description %></td>
+            <td><%= link_to "#{event.start_time.strftime("%B %d, %Y @ %I:%M%P")}", event %></td> <!--helpful resource - https://hackhands.com/format-datetime-ruby/-->
+            <td><%= link_to "#{event.duration} minutes", event %></td>
+            <td><%= link_to "#{event.description}", event %></td>
           </tr>
         <% end %>
       </tbody>
