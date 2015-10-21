@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :attendees
   resources :invitees
   devise_for :users
   devise_scope :user do

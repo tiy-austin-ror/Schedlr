@@ -24,15 +24,23 @@
   <%= @event.user.first_name %> <%= @event.user.last_name %>
 </p>
 
+<p><%= link_to "Attend event", class: 'btn btn-default btn-xs' if @event.attendees.count < @event.room.capacity %></p>
+
 <tbody>
   <tr>
     <strong>Choose your invitees:</strong><br>
       <td><% @event.user.company.users.each do |user| %></td>
       <td><%= user.first_name %> <%= user.last_name %></td>
-      <td><%= react_component('InviteButton', userID: user.id, eventID: @event.id ) %></td>
+      <td><%= react_component('InviteButton', userID: user.id, eventID: @event.id ) if @event.attendees.count < @event.room.capacity %></td>
   </tr>
+  <%= @event.room.inspect if Rails.env.development? %>
     <% end %>
 </tbody>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
+<p><%= params.inspect if Rails.env.development? %></p>
+<p><%= current_user.inspect if Rails.env.development? %></p>
+
+
+
