@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :events
   has_many :rooms, through: :events
+  has_many :attendees
+  has_many :invitees
   belongs_to :company
 
   def full_name
