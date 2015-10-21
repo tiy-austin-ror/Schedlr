@@ -17,7 +17,7 @@ var InviteButton = React.createClass({
           }
         }
           }).done(function () {
-          this.setState({ invited: false });
+          this.setState({ invited: true });
           }.bind(this));
   },
 
