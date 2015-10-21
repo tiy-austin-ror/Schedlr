@@ -2,13 +2,8 @@ class InviteesController < ApplicationController
   before_action :set_invitee, only: [:show, :edit, :update, :destroy]
 
   # GET /invitees
-  def index
-    @invitees = Invitee.all
-  end
 
   # GET /invitees/1
-  def show
-  end
 
   # GET /invitees/new
   def new
@@ -34,7 +29,6 @@ class InviteesController < ApplicationController
   # PATCH/PUT /invitees/1
   def update
     if @invitee.update(invitee_params)
-      @invitee.save
       redirect_to @invitee, notice: 'Invitee was successfully updated.'
     else
       render :edit
