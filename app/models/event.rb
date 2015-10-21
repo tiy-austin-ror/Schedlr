@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
   belongs_to :room
   belongs_to :user
   has_many :invitees
+  has_many :attendees
 
   def formatted_start_time
     self.start_time.strftime("%B %d, %Y @ %I:%M%P")
@@ -20,4 +21,7 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def at_total_occupancy?
+    self.attendees.count < self.room.capacity
+  end
 end
