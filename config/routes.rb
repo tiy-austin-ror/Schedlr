@@ -8,10 +8,11 @@ Rails.application.routes.draw do
   resources :rooms
   resources :buildings
   resources :sites
+  resources :invitees
   get '/admin' => 'dashboard#index'
   get '/users' => 'users#index'
-  get '/pdf' => 'events#index'
-  get '/events_csv' => 'events#index'
+  get '/pdf' => 'events#index', as: 'pdf'
+  get '/events_csv' => 'events#index', as: 'events_csv'
   get '/rsvp' => 'application#rsvp'
   root 'companies#index'
 
