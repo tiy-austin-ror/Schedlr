@@ -13,3 +13,11 @@ Feature: Rooms
 
   @skip
   Scenario: Creating a room as an admin
+    Given I am an admin
+    And I am logged in
+    When I click "Rooms"
+    And I click "New Room"
+    And I fill in the new room form with "Foobar" as the room name
+    And I press "Create Room"
+    Then I should see "Room was successfully created."
+    And I should see "Room Name: Foobar"
