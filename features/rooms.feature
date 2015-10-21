@@ -7,7 +7,7 @@ Feature: Rooms
     Given I am an existing User
     And I am on the login page
     When I attempt to sign in
-    And I press "Log in" #Press is for buttons 'click' is for links
+    And I press "Log in"
     When I click "Rooms"
     Then I should see "Rooms Directory"
 
