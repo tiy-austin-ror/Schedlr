@@ -20,9 +20,19 @@
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong>Event created by:</strong>
   <%= @event.user.full_name %>
 </p>
+
+<tbody>
+  <tr>
+    <strong>Choose your invitees:</strong><br>
+      <td><% @event.user.company.users.each do |user| %></td>
+      <td><%= user.first_name %> <%= user.last_name %></td>
+      <td><%= react_component('InviteButton', userID: user.id, eventID: @event.id ) %></td>
+  </tr>
+    <% end %>
+</tbody>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

@@ -1,7 +1,7 @@
-5.times do
+5.times do |n|
   company = Company.create({
 
-        name: "Test Company" })
+        name: "Test Company #{n + 1}" })
 
           admin = User.new({
             first_name:   Faker::Name.first_name,
