@@ -1,7 +1,9 @@
 class AttendeesController < ApplicationController
 
   def create
-    @attendee = Attendee.new(event_id: params[:event], user_id: current_user.id)
+    @attendee = Attendee.new(attendee_params)
+    @attendee.user_id = current_user.id
+
     respond_to do |format|
       if @attendee.save
         format.html { redirect_to :back, notice: 'attendee was successfully created.' }
@@ -23,5 +25,6 @@ class AttendeesController < ApplicationController
     def attendee_params
       params.require(:attendee).permit(:event_id, :user_id)
     end
+
 
 end
