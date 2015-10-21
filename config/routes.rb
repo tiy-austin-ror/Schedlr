@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   resources :invitees
   get '/admin' => 'dashboard#index'
   get '/users' => 'users#index'
-  get '/pdf' => 'events#index', as: 'pdf'
-  get '/events_csv' => 'events#index', as: 'events_csv'
+  get '/pdf' => 'events#reports', as: 'pdf'
+  get '/events_csv' => 'events#reports', as: 'events_csv'
   root 'companies#index'
 
 end

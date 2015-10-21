@@ -4,6 +4,10 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    @events = Event.order(:start_time).page params[:page]
+  end
+
+  def reports
     @events = Event.all
     respond_to do |format|
       format.html
@@ -14,7 +18,6 @@ class EventsController < ApplicationController
       end
     end
   end
-
   # GET /events/1
   # GET /events/1.json
   def show
