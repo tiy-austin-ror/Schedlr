@@ -1,4 +1,5 @@
 When(/^I click "(.*?)"$/) do |link_name|
+  #puts page.html << For debugging
   click_link(link_name)
 end
 

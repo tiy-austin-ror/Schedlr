@@ -3,11 +3,12 @@ Feature: Rooms
   As a user or an admin
   I want to be able to visit various rooms in the application
 
+  @javascript
   Scenario: Visiting a room as a user
     Given I am an existing User
     And I am on the login page
     When I attempt to sign in
-    And I click "Log In"
+    And I press "Log in"
     When I click "Rooms"
     Then I should see "Rooms Directory"
 
