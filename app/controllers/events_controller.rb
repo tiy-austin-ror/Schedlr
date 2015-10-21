@@ -26,6 +26,8 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
 
+    @event.user = current_user
+
     respond_to do |format|
       if @event.save
         UserMailer.room_confirm(current_user, @room).deliver_now
