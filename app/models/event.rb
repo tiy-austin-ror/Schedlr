@@ -12,4 +12,8 @@ class Event < ActiveRecord::Base
       end
     end
   end
+
+  def at_total_occupancy?
+    self.attendees.count < self.room.capacity
+  end
 end
