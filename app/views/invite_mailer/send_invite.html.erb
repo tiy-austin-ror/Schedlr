@@ -9,7 +9,7 @@
 </p>
 
 
-<h4>Please RSVP by visiting <%= rsvp_url(@event, host: 'https://rustworks-schedlr.herokuapp.com') %> </h4>
+<h4>Please RSVP by visiting <%= invitee_url(@event, host: 'https://rustworks-schedlr.herokuapp.com') %> </h4>
 <p>
   If you have any questions, please contact <%= @event_organizer.first_name %> <%= @event_organizer.last_name %>
   at <%= @event_organizer.email %>
