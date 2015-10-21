@@ -3,6 +3,7 @@ class Company < ActiveRecord::Base
   has_many :users
   has_many :buildings, through: :sites
   has_many :rooms, through: :buildings
+  has_many :events, through: :users
+  has_many :invitees, through: :events
   has_many :attendees, through: :users
-  has_many :events, through: :attendees
 end
