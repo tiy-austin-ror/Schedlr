@@ -1,32 +1,33 @@
-var InviteButton = React.createClass({
+var AcceptButton = React.createClass({
   getInitialState: function () {
     return {
-      invited: false
+      accepted: false
     };
   },
 
   handleClick: function (event) {
       $.ajax({
-        url: '/invitees',
-        method: "POST",
+        url: '/invitees/1',
+        method: "PUT",
         dataType: "JSON",
         data: {
           invitee: {
             user_id: this.props.userID,
             event_id: this.props.eventID,
+            accepted: true
           }
         }
           }).done(function () {
-          this.setState({ invited: true });
+          this.setState({ accepted: true });
           }.bind(this));
   },
 
   render: function () {
-    if (this.state.invited) {
-        return (<div className=''>Employee Invited!</div>);
+    if (this.state.accepted) {
+        return (<div className=''>You Accepted the Invitation!</div>);
     } else {
         return (
-            <div className='btn btn-default' onClick={this.handleClick}>Invite Employee!</div>
+            <div className='btn btn-default' onClick={this.handleClick}>Accept & RSVP</div>
         );
     }
   }
