@@ -28,9 +28,10 @@ gem "pundit"
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
+gem "codeclimate-test-reporter", group: :test, require: false
 group :development, :test do
   gem 'pry'
-  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails', require: false
   gem 'selenium-webdriver'
   gem 'database_cleaner'
 end
