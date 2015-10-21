@@ -5,4 +5,5 @@ class Company < ActiveRecord::Base
   has_many :rooms, through: :buildings
   has_many :attendees, through: :users
   has_many :events, through: :attendees
+  has_many :events, through: :invitees
 end
