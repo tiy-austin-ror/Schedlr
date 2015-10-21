@@ -5,6 +5,14 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+    respond_to do |format|
+      format.html
+      format.csv { render text: @events.to_csv }
+      format.pdf do
+        render pdf: 'Events',
+               template: 'dashboard/show.pdf.erb'
+      end
+    end
   end
 
   # GET /events/1
@@ -25,6 +33,8 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+
+    @event.user = current_user
 
     respond_to do |format|
       if @event.save

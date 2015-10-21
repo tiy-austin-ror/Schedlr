@@ -25,9 +25,14 @@ gem 'turbolinks'
 gem 'devise'
 gem 'react-rails'
 gem "pundit"
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   gem 'pry'
+  gem 'cucumber-rails', :require => false
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 group :development do

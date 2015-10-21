@@ -1,44 +1,66 @@
+  <div class="row">
+    <div class="colspan-3">
+      <p class="text-left">
+        <strong>Room Name:</strong>
+        <%= @room.name.titleize %>
+      </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @room.name %>
-</p>
+      <p class="text-left">
+        <strong>Capacity:</strong>
+        <%= @room.capacity %>
+      </p>
 
-<p>
-  <strong>Capacity:</strong>
-  <%= @room.capacity %>
-</p>
+      <p class="text-left">
+        <strong>Building:</strong>
+        <%= @room.building.name.titleize %>
+      </p>
+    </div>
 
-<p>
-  <strong>Building:</strong>
-  <%= @room.building.name %>
-</p>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Who Made The Reservation</th>
+          <th>Start Time</th>
+          <th>Duration</th>
+          <th>Description</th>
+        </tr>
+      </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Start Time</th>
-      <th>Duration</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <tbody>
+        <% @room.events.each do |event| %>
+          <tr>
+            <%= link_to event do %>
+              <td><%= event.user.full_name.titleize %></td>
+              <td><%= link_to event.formatted_start_time %></td> <!--helpful resource - https://hackhands.com/format-datetime-ruby/-->
+              <td><%= link_to event.formatted_event_duration %></td>
+              <td><%= link_to event.description %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-  <tbody>
-    <% @room.events.each do |event| %>
-      <tr>
-        <td><%= event.user.full_name %></td>
-        <td><%= event.start_time %></td>
-        <td><%= event.duration %></td>
-        <td><%= event.description %></td>
-      </tr>
-    <% end %>
-    <th colspan="5"></th>
-  </tbody>
-</table>
+<%= form_for Event.new do |f| %>
 
-<td><%= react_component('ScheduleEventForm', userID: 1, roomID: room.id ) %></td>
+<div class="field">
+  <%= f.label :start_time %><br>
+  <%= f.datetime_select :start_time %>
+</div>
+<div class="field">
+  <%= f.label :duration %><br>
+  <%= f.number_field :duration %>
+</div>
+<div class="field">
+  <%= f.label :description %><br>
+  <%= f.text_field :description %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+<%= f.hidden_field(:room_id, value: @room.id) %>
 
+<% end %>
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>

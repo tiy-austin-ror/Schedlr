@@ -5,7 +5,8 @@ class DashboardController < ApplicationController
   end
 
   def index
+    @rooms = current_user.company.rooms
+    @events = current_user.company.events
+    @invitees = current_user.company.invitees
   end
-
-
 end

@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  def rsvp
+    render 'layouts/rsvp.html.erb'
+  end
+
+
   private
 
   def user_not_authorized

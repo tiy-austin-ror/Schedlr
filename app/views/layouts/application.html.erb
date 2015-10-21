@@ -1,26 +1,44 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Schedlr</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+  <html>
+    <head>
+      <title>Schedlr</title>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+    </head>
+      <body>
 
-<p><%= link_to 'Log In', new_user_session_path %></p>
-<p><%= link_to 'Log Out', logout_path, method: :delete %></p>
-<p><%= link_to 'Sign Up', new_user_registration_path %></p>
-<p><%= link_to 'Admin', admin_path %></p>
+      <ul class="nav nav-pills">
+        <li><%= link_to 'Home'     , root_path %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to 'Sites'    , sites_path %></li>
+          <li><%= link_to 'Buildings', buildings_path %></li>
+          <li><%= link_to 'Rooms'    , rooms_path %></li>
+          <li><%= link_to 'Events'   , events_path %></li>
+          <li><%= link_to 'Log Out'  , logout_path, method: :delete %></li>
+          <ul class="nav nav-pills left">
+            <li><%= link_to 'Admin'    , admin_path %></li>
+          </ul>
+        <% else %>
+          <li><%= link_to 'Sign Up'  , new_user_registration_path %></li>
+          <li><%= link_to 'Log In'   , new_user_session_path %></li>
+        <% end %>
+      </ul>
+          <div class='container'>
 
-    <div class='container'>
-      <div class='col-md-4'>
-        <main>
-          <%= yield %>
-        </main>
-      </div>
-    </div>
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-</body>
-</html>
+            <main>
+              <% if notice %>
+                <p class="alert alert-success alert-dismissible" role="alert"><%= notice %></p>
+              <% end %>
+
+              <% if alert %>
+                <p class="alert alert-danger alert-dismissible" role="alert"><%= alert %></p>
+              <% end %>
+
+              <center><%= yield %></center>
+            </main>
+
+          </div>
+
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      </body>
+  </html>
