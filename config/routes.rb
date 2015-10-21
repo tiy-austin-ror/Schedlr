@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :invitees
   devise_for :users
   devise_scope :user do
     delete "/logout" => "devise/sessions#destroy"
@@ -11,5 +10,7 @@ Rails.application.routes.draw do
   resources :sites
   get '/admin' => 'dashboard#index'
   get '/users' => 'users#index'
+  get '/pdf' => 'events#index'
+  get '/events_csv' => 'events#index'
   root 'companies#index'
 end
