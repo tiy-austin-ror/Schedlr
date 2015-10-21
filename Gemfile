@@ -25,6 +25,8 @@ gem 'turbolinks'
 gem 'devise'
 gem 'react-rails'
 gem "pundit"
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   gem 'pry'
