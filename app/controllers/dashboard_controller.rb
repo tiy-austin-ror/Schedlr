@@ -7,9 +7,6 @@ class DashboardController < ApplicationController
   def index
     @rooms = current_user.company.rooms
     @events = current_user.company.events
-    @invitees = Invitee.all
-  end
-
-  def show
+    @invitees = current_user.company.invitees
   end
 end

@@ -47,12 +47,17 @@
                     building_id:  building.id })
 
               5.times do
-                Event.create({
+                event = Event.create({
                       start_time:   Faker::Time.forward(5, :morning),
                       duration:     rand(30..60),
                       description:  Faker::Lorem.sentence,
                       room_id:      room.id,
                       user_id:      user.id })
+
+                Attendee.create({
+                      event_id: event.id,
+                      user_id: user.id
+                  })
                 end
               end
             end
