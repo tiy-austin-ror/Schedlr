@@ -10,5 +10,6 @@ class DashboardController < ApplicationController
     @invitees = Invitee.all
   end
 
-
+  def show
+  end
 end
