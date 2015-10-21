@@ -1,0 +1,16 @@
+<h2>You have been invited to attend this special event: </h2>
+<h3>Dear <%= @user.first_name %> <%= @user.last_name %>, </h3>
+<p>
+  You have been invited to attend this special event:
+  <%= @event.start_time %>
+  <%= @event.duration %>
+  <%= @event.description %>
+  <%= @event.room.name %>
+</p>
+
+
+<h4>Please RSVP by visiting <%= rsvp_url(@event, host: 'https://rustworks-schedlr.herokuapp.com') %> </h4>
+<p>
+  If you have any questions, please contact <%= @event_organizer.first_name %> <%= @event_organizer.last_name %>
+  at <%= @event_organizer.email %>
+</p>

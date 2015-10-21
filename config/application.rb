@@ -23,6 +23,7 @@ module Schedlr
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.action_mailer.default_url_options = { host: 'https://rustworks-schedlr.herokuapp.com/rsvp' }
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
