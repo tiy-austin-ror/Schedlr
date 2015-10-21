@@ -9,16 +9,18 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
-<ul class="nav nav-tabs">
-  <li><button class="btn btn-default" type="submit"><%= link_to 'Home'     , root_path %></button></li>
-  <li><button class="btn btn-default" type="submit"><%= link_to 'Log In'   , new_user_session_path %></button></li>
-  <li><button class="btn btn-default" type="submit"><%= link_to 'Log Out'  , logout_path, method: :delete %></button></li>
-  <li><button class="btn btn-default" type="submit"><%= link_to 'Sign Up'  , new_user_registration_path %></button></li>
-  <li><button class="btn btn-default" type="submit"><%= link_to 'Admin'    , admin_path %></button></li>
-  <li><button class="btn btn-default" type="submit"><%= link_to 'Sites'    , sites_path %></button></li>
-  <li><button class="btn btn-default" type="submit"><%= link_to 'Buildings', buildings_path %></button></li>
-  <li><button class="btn btn-default" type="submit"><%= link_to 'Rooms'    , rooms_path %></button></li>
-  <li><button class="btn btn-default" type="submit"><%= link_to 'Events'   , events_path %></button></li>
+<ul class="nav nav-pills">
+  <li><%= link_to 'Home'     , root_path %></li>
+  <li><%= link_to 'Log In'   , new_user_session_path %></li>
+  <li><%= link_to 'Log Out'  , logout_path, method: :delete %></li>
+  <li><%= link_to 'Sign Up'  , new_user_registration_path %></li>
+  <li><%= link_to 'Sites'    , sites_path %></li>
+  <li><%= link_to 'Buildings', buildings_path %></li>
+  <li><%= link_to 'Rooms'    , rooms_path %></li>
+  <li><%= link_to 'Events'   , events_path %></li>
+</ul>
+<ul class="nav nav-pills left">
+  <li><%= link_to 'Admin'    , admin_path %></li>
 </ul>
 
     <div class='container'>
