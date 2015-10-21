@@ -2,22 +2,22 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @building.name %>
+  <%= @building.name.titleize %>
 </p>
 
 <p>
   <strong>Street:</strong>
-  <%= @building.street %>
+  <%= @building.street.titleize %>
 </p>
 
 <p>
   <strong>City:</strong>
-  <%= @building.city %>
+  <%= @building.city.titleize %>
 </p>
 
 <p>
   <strong>State:</strong>
-  <%= @building.state %>
+  <%= @building.state.titleize %>
 </p>
 
 <p>
@@ -27,7 +27,7 @@
 
 <p>
   <strong>Site:</strong>
-  <%= @building.site %>
+  <%= @building.site.name.titleize %>
 </p>
 
 <%= link_to 'Edit', edit_building_path(@building) %> |
