@@ -1,36 +1,42 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Schedlr</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+  <html>
+    <head>
+      <title>Schedlr</title>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+    </head>
+      <body>
 
-<ul class="nav nav-pills">
-  <li><%= link_to 'Home'     , root_path %></li>
-  <li><%= link_to 'Log In'   , new_user_session_path %></li>
-  <li><%= link_to 'Log Out'  , logout_path, method: :delete %></li>
-  <li><%= link_to 'Sign Up'  , new_user_registration_path %></li>
-  <li><%= link_to 'Sites'    , sites_path %></li>
-  <li><%= link_to 'Buildings', buildings_path %></li>
-  <li><%= link_to 'Rooms'    , rooms_path %></li>
-  <li><%= link_to 'Events'   , events_path %></li>
-</ul>
-<ul class="nav nav-pills left">
-  <li><%= link_to 'Admin'    , admin_path %></li>
-</ul>
+      <ul class="nav nav-pills">
+        <li><%= link_to 'Home'     , root_path %></li>
+        <li><%= link_to 'Log In'   , new_user_session_path %></li>
+        <li><%= link_to 'Log Out'  , logout_path, method: :delete %></li>
+        <li><%= link_to 'Sign Up'  , new_user_registration_path %></li>
+        <li><%= link_to 'Sites'    , sites_path %></li>
+        <li><%= link_to 'Buildings', buildings_path %></li>
+        <li><%= link_to 'Rooms'    , rooms_path %></li>
+        <li><%= link_to 'Events'   , events_path %></li>
+      </ul>
+      <ul class="nav nav-pills left">
+        <li><%= link_to 'Admin'    , admin_path %></li>
+      </ul>
 
-    <div class='container'>
+          <div class='container'>
 
-      <main>
-        <center><%= yield %></center>
-      </main>
+            <main>
+              <% if notice %>
+                <p class="alert alert-success alert-dismissible" role="alert"><%= notice %></p>
+              <% end %>
 
-    </div>
+              <% if alert %>
+                <p class="alert alert-danger alert-dismissible" role="alert"><%= alert %></p>
+              <% end %>
 
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-</body>
-</html>
+              <center><%= yield %></center>
+            </main>
+
+          </div>
+
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      </body>
+  </html>
