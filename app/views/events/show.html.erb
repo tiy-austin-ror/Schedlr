@@ -24,7 +24,7 @@
   <%= @event.user.first_name %> <%= @event.user.last_name %>
 </p>
 
-<p><%= link_to "Attend event", class: 'btn btn-default btn-xs' if @event.attendees.count < @event.room.capacity %></p>
+<p><%= link_to "Attend event", attendees_path( @event ), :method => :post, class: 'btn btn-default btn-xs' if @event.attendees.count < @event.room.capacity %></p>
 
 <tbody>
   <tr>
