@@ -2,7 +2,7 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @site.name %>
+  <%= @site.name.titleize %>
 </p>
 
 <p>
@@ -12,7 +12,7 @@
 
 <p>
   <strong>Company:</strong>
-  <%= @site.company %>
+  <%= @site.company.name.titleize %>
 </p>
 
 <%= link_to 'Edit', edit_site_path(@site) %> |
