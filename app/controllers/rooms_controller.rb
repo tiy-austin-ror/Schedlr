@@ -10,11 +10,7 @@ class RoomsController < ApplicationController
   # GET /rooms/1
   # GET /rooms/1.json
   def show
-  #  render locals: { room:  Room.find(params[:id])}
-    @event = Event.create({
-      room_id: @room.id,
-      user_id: current_user.id
-      })
+    render locals: { room:  Room.find(params[:id])}
   end
 
   # GET /rooms/new

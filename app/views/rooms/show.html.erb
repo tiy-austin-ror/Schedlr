@@ -31,7 +31,6 @@
         <% @room.events.each do |event| %>
           <tr>
             <td><center><p class="text-capitalize"><%= event.user.full_name %></p></center></td>
-            <td><%= event.start_time.strftime("%B %d, %Y @ %I:%M%P") %></td> <!--helpful resource - https://hackhands.com/format-datetime-ruby/-->
             <td><%= "#{event.duration}" + " minutes" %></td>
             <td><%= event.description %></td>
           </tr>
@@ -39,7 +38,27 @@
       </tbody>
     </table>
   </div>
-  <%= render partial: 'events/form' %>
+
+<%= form_for Event.new do |f| %>
+
+<div class="field">
+  <%= f.label :start_time %><br>
+  <%= f.datetime_select :start_time %>
 </div>
+<div class="field">
+  <%= f.label :duration %><br>
+  <%= f.number_field :duration %>
+</div>
+<div class="field">
+  <%= f.label :description %><br>
+  <%= f.text_field :description %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+<%= f.hidden_field(:user_id, value: current_user.id) %>
+<%= f.hidden_field(:room_id, value: @room.id) %>
+
+<% end %>
 <%= link_to 'Edit', edit_room_path(@room) %> |
 <%= link_to 'Back', rooms_path %>
