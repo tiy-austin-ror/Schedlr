@@ -24,7 +24,8 @@ class InviteesController < ApplicationController
     @invitee = Invitee.new(invitee_params)
 
     if @invitee.save
-      redirect_to @invitee, notice: 'Invitee was successfully created.'
+      InviteMailer.send_invite(@invitee).deliver_now
+      redirect_to :back, notice: 'Invitee was successfully created.'
     else
       render :new
     end
@@ -33,6 +34,7 @@ class InviteesController < ApplicationController
   # PATCH/PUT /invitees/1
   def update
     if @invitee.update(invitee_params)
+      @invitee.save
       redirect_to @invitee, notice: 'Invitee was successfully updated.'
     else
       render :edit
@@ -53,6 +55,6 @@ class InviteesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def invitee_params
-      params.require(:invitee).permit(:event_id, :user_id)
+      params.require(:invitee).permit(:event_id, :user_id, :accepted)
     end
 end

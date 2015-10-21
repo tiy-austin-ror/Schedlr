@@ -4,10 +4,11 @@ var AcceptButton = React.createClass({
       accepted: false
     };
   },
-
+//need URL to be whoever the invitee accepting is
   handleClick: function (event) {
+    var invitee_id = this.props.inviteeID
       $.ajax({
-        url: '/invitees/1',
+        url: '/invitees/' + invitee_id,
         method: "PUT",
         dataType: "JSON",
         data: {
@@ -27,7 +28,7 @@ var AcceptButton = React.createClass({
         return (<div className=''>You Accepted the Invitation!</div>);
     } else {
         return (
-            <div className='btn btn-default' onClick={this.handleClick}>Accept & RSVP</div>
+            <div className='btn btn-default' onClick={this.handleClick}>Accept</div>
         );
     }
   }

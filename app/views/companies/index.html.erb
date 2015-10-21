@@ -1,5 +1,14 @@
+<div class="container">
+  <h1>Listing Companies</h1>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<h1>Listing Companies</h1>
 
 <table>
   <thead>
@@ -22,5 +31,20 @@
 </table>
 
 <br>
-<%= react_component('AcceptButton', userID: 1, eventID: 2) %>
+
+      <tbody>
+        <% @companies.each do |company| %>
+          <tr>
+            <td><p class="text-capitalize"><%= company.name %></p></td>
+            <td><button class="btn btn-default" type="submit"><%= link_to 'Show', company %></button></td>
+            <td><button class="btn btn-default" type="submit"><%= link_to 'Edit', edit_company_path(company) %></button></td>
+            <td><button class="btn btn-default" type="submit"><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <br>
+</div>
+
 <%= link_to 'New Company', new_company_path %>
