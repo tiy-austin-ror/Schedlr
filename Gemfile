@@ -26,7 +26,7 @@ gem 'devise'
 gem 'react-rails'
 gem "pundit"
 gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
+
 
 group :development, :test do
   gem 'pry'
@@ -38,9 +38,11 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'wkhtmltopdf-binary'
 end
 
 group :production do
   gem 'puma'
   gem 'rails_12factor'
+  gem 'wkhtmltopdf-heroku'
 end
