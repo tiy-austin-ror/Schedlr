@@ -13,6 +13,7 @@ var Search = React.createClass({
       dataType: 'JSON',
       method: 'GET'
     }).done(function (response) {
+
       this.setState({
         all_rooms: response,
         filtered_rooms: response
