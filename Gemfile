@@ -27,6 +27,11 @@ gem 'react-rails'
 gem "pundit"
 gem 'wicked_pdf'
 
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"
+gem "refile-s3"
+
+
 gem "codeclimate-test-reporter", group: :test, require: false
 group :development, :test do
   gem 'pry'

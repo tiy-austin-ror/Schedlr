@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+  paginates_per 8
   belongs_to :room
   belongs_to :user
   has_many :invitees
