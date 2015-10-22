@@ -8,7 +8,7 @@ var Search = React.createClass({
     getInitialState: function() {
       return {
         rooms: this.props.rooms,
-        search: ' '
+        search: ''
       };
     },
 
@@ -30,6 +30,26 @@ var Search = React.createClass({
               onChange={this.handleChange} value={this.state.search}
               placeHolder='search rooms' />
           </p>
+          <div className="table-responsive">
+            <table className="table table-hover">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Capacity</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.rooms.map(function (room) {
+                  return (
+                    <tr>
+                      <td> { room.name } </td>
+                      <td> { room.capacity }</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </section>
     );
   }
