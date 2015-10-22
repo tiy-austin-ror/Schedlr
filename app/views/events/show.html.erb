@@ -22,6 +22,10 @@
   <strong>Event created by:</strong>
   <%= @event.user.full_name.titleize %>
 </p>
+<p>
+  <strong>Number of attendees:</strong>
+  <%= @event.attendees.count %>
+</p>
 <p>Click Button to attend this event.</p>
 <%= link_to "Attend event", attendees_path(:attendee => { :event_id => @event.id }),
  :method => :post, class: 'btn btn-default btn-md' if @event.attendees.count < @event.room.capacity %>
@@ -30,16 +34,16 @@
   <tr>
     <strong>Choose your invitees:</strong><br>
       <td><% current_user.company.users.each do |user| %></td>
-
       <td><%= user.first_name %> <%= user.last_name %></td>
-      <td><%= react_component('InviteButton', userID: user.id, eventID: @event.id )
-       if @event.at_total_occupancy? %></td>
+      <% unless @event.attendees.count < @event.room.capacity %>
+      <td><%= react_component('InviteButton', userID: user.id, eventID: @event.id ) %></td>
+      <% end %>
   </tr>
-  <%= @event.room.inspect if Rails.env.development? %>
+  <% @event.room.inspect if Rails.env.development? %>
     <% end %>
 </tbody>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
-<p><%= params.inspect if Rails.env.development? %></p>
-<p><%= current_user.inspect if Rails.env.development? %></p>
+<p><% params.inspect if Rails.env.development? %></p>
+<p><% current_user.inspect if Rails.env.development? %></p>
