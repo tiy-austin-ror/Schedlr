@@ -20,7 +20,7 @@ var AcceptButton = React.createClass({
         }
           }).done(function () {
           this.setState({ accepted: true });
-          }.bind(this));
+        }.bind(this));s
   },
 
   render: function () {
