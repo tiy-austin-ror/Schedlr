@@ -1,3 +1,39 @@
 // Place all the styles related to the Events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.description {
+  strong {
+    text-transform: uppercase;
+    }
+    float:right;
+    width: 40%;
+    background-color: #98DDC9;
+    font-family: Verdana;
+    padding: 20px;
+    border-radius:15px;
+}
+
+.invitees {
+  strong {
+    text-transform: uppercase;
+  }
+    .InviteButton {
+      width:25%;
+    }
+  margin-top: 300px;
+  background-color:#85C7D6;
+  padding:20px;
+  border-radius:15px;
+}
+
+.attendees {
+  strong {
+    text-transform: uppercase;
+  }
+  margin-top: 50px;
+  width: 55%;
+  background-color:#8185D5;
+  padding:20px;
+  border-radius:15px;
+}
