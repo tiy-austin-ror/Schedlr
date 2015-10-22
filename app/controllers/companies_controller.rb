@@ -12,6 +12,13 @@ class CompaniesController < ApplicationController
   def show
   end
 
+  def mount_building_relation
+    @company = Company.find(current_user.company_id)
+    @company_rooms = @company.rooms
+    render json: @company_rooms.to_json(include: :building), status: 200
+  end
+
+
   # GET /companies/new
   def new
     @company = Company.new

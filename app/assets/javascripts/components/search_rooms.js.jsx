@@ -1,18 +1,30 @@
 var Search = React.createClass({
-    getDefaultProps: function() {
+    getDefaultProps: function () {
       return {
-        rooms: []
+        rooms: [],
       };
     },
 
-    getInitialState: function() {
+    componentDidMount: function () {
+      $.ajax({
+        url: '/company/rooms',
+        dataType: 'JSON',
+        method: 'GET'
+      }).done(function (response) {
+        this.setState({
+          rooms: response
+        });
+      }.bind(this));
+    },
+
+    getInitialState: function () {
       return {
         rooms: this.props.rooms,
         search: ''
       };
     },
 
-    handleChange: function(event) {
+    handleChange: function (event) {
       var matched_rooms = this.props.rooms.filter(function (room) {
         return (room.name.toLowerCase().indexOf(event.target.value.toLowerCase()) > -1);
       });
@@ -23,6 +35,7 @@ var Search = React.createClass({
     },
 
     render: function() {
+      var buildings = this.state.buildings;
       return (
         <section>
           <p>
@@ -36,6 +49,7 @@ var Search = React.createClass({
                 <tr>
                   <th>Name</th>
                   <th>Capacity</th>
+                  <th>Building name</th>
                 </tr>
               </thead>
               <tbody>
@@ -44,6 +58,7 @@ var Search = React.createClass({
                     <tr>
                       <td> { room.name } </td>
                       <td> { room.capacity }</td>
+                      <td> { room.building.name }</td>
                     </tr>
                   );
                 })}

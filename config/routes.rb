@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/users' => 'users#index'
   get '/pdf' => 'events#reports', as: 'pdf'
   get '/events_csv' => 'events#reports', as: 'events_csv'
+  get '/company/rooms' => 'companies#mount_building_relation'
   root 'companies#index'
 
 end
