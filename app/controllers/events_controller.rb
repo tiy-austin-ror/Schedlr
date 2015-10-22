@@ -37,8 +37,14 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
-
     @event.user = current_user
+
+    Event.where(room_id: params[:event][:room_id]).any? do |e|
+      if e.event_range.overlaps?(@event.event_range)
+        flash.alert = "An event is already scheduled for that time!"
+        redirect_to room_path(params[:event][:room_id]) and return
+      end
+    end
 
     respond_to do |format|
       if @event.save
@@ -50,6 +56,7 @@ class EventsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /events/1

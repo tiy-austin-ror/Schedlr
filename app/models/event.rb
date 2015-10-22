@@ -31,4 +31,8 @@ class Event < ActiveRecord::Base
   def at_total_occupancy?
     self.attendees.count < self.room.capacity
   end
+
+  def event_range
+    (start_time)..(start_time + duration.minutes)
+  end
 end

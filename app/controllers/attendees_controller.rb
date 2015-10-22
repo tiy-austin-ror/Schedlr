@@ -4,6 +4,13 @@ class AttendeesController < ApplicationController
     @attendee = Attendee.new(attendee_params)
     @attendee.user_id = current_user.id
 
+    Attendee.where(user_id: current_user.id).any? do |a|
+      if a.event.event_range.overlaps?(@attendee.event.event_range)
+        flash.alert = "You are already scheduled for an event at that time!"
+        redirect_to event_path(params[:attendee][:event_id])and return
+      end
+    end
+
     respond_to do |format|
       if @attendee.save
         format.html { redirect_to :back, notice: 'attendee was successfully created.' }
