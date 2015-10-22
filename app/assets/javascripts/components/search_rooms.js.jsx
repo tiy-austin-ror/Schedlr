@@ -40,12 +40,12 @@ var Search = React.createClass({
                 </tr>
               </thead>
               <tbody>
-                {this.state.rooms.map(function (room) {
+                {this.state.rooms.map(function (room, building) {
                   return (
                     <tr>
                       <td> { room.name } </td>
                       <td> { room.capacity }</td>
-                      <td> { room } </td>
+                      <td> { building.name }</td>
                     </tr>
                   );
                 })}

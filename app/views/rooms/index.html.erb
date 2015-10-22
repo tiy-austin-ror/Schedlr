@@ -1,3 +1,3 @@
 <h1>Rooms Directory</h1>
-<%= react_component('Search', rooms: current_user.company.rooms ) %>
+<%= react_component('Search', rooms: current_user.company.rooms) %>
 <%= link_to 'New Room', new_room_path if current_user.admin? %>
