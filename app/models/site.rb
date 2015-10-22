@@ -1,4 +1,5 @@
 class Site < ActiveRecord::Base
+  paginates_per 8
   belongs_to :company
   has_many :buildings
   has_many :rooms, through: :buildings

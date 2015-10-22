@@ -69,8 +69,9 @@ ActiveRecord::Schema.define(version: 20151021200019) do
     t.string   "name"
     t.integer  "capacity"
     t.integer  "building_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "room_image_id"
   end
 
   add_index "rooms", ["building_id"], name: "index_rooms_on_building_id", using: :btree

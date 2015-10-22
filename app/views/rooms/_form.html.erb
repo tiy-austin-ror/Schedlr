@@ -23,6 +23,9 @@
     <%= f.label :building_id %><br>
     <%= f.select :building_id, current_user.company.buildings.map { |c| [c.name, c.id] } %>
   </div>
+  <div>
+    <%= f.attachment_field :room_image %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
