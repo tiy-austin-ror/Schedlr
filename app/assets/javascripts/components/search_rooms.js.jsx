@@ -36,16 +36,14 @@ var Search = React.createClass({
                 <tr>
                   <th>Name</th>
                   <th>Capacity</th>
-                  <th>Building</th>
                 </tr>
               </thead>
               <tbody>
-                {this.state.rooms.map(function (room, building) {
+                {this.state.rooms.map(function (room) {
                   return (
                     <tr>
                       <td> { room.name } </td>
                       <td> { room.capacity }</td>
-                      <td> { building.name }</td>
                     </tr>
                   );
                 })}
