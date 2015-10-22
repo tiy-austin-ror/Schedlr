@@ -6,7 +6,7 @@ Dear <%= @user.first_name %> <%= @user.last_name %>,
   <%= @event.description %>
   <%= @event.room.name %>
 
-  Please RSVP by visiting <%= rsvp_url(@event, host: 'https://rustworks-schedlr.herokuapp.com') %> -->
+  Please RSVP by visiting <%= invitee_url(@event, host: 'https://rustworks-schedlr.herokuapp.com') %>
 
   If you have any questions, please contact <%= @event_organizer.first_name %> <%= @event_organizer.last_name %>
   at <%= @event_organizer.email %>.

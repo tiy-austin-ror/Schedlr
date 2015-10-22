@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
   # GET /rooms
   # GET /rooms.json
   def index
-    @rooms = Room.all
+    @rooms = Room.order(:name).page params[:page]
   end
 
   # GET /rooms/1
@@ -70,6 +70,6 @@ class RoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.require(:room).permit(:name, :capacity, :building_id, :site_id, :company_id)
+      params.require(:room).permit(:name, :capacity, :building_id, :site_id, :company_id, :room_image_id)
     end
 end

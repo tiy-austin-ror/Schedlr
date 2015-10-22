@@ -2,13 +2,8 @@ class InviteesController < ApplicationController
   before_action :set_invitee, only: [:show, :edit, :update, :destroy]
 
   # GET /invitees
-  def index
-    @invitees = Invitee.all
-  end
 
   # GET /invitees/1
-  def show
-  end
 
   # GET /invitees/new
   def new
@@ -54,6 +49,6 @@ class InviteesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def invitee_params
-      params.require(:invitee).permit(:event_id, :user_id)
+      params.require(:invitee).permit(:event_id, :user_id, :accepted)
     end
 end
