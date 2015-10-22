@@ -5,8 +5,4 @@ class EventPolicy < ApplicationPolicy
     @user = user
     @event = event
   end
-
-  def is_in_private_event?
-
-  end
 end
