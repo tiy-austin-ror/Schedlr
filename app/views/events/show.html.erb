@@ -35,7 +35,7 @@
     <strong>Choose your invitees:</strong><br>
       <td><% current_user.company.users.each do |user| %></td>
       <td><%= user.first_name %> <%= user.last_name %></td>
-      <% unless @event.attendees.count < @event.room.capacity %>
+      <% unless @event.at_total_occupancy?%>
       <td><%= react_component('InviteButton', userID: user.id, eventID: @event.id ) %></td>
       <% end %>
   </tr>

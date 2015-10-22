@@ -6,7 +6,6 @@ class DashusersController < ApplicationController
 
   def index
     @events = current_user.company.events
-
   end
 
 end
