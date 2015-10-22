@@ -35,4 +35,12 @@ class Event < ActiveRecord::Base
   def event_range
     (start_time)..(start_time + duration.minutes)
   end
+
+  def end_time
+    start_time + duration.minutes
+  end
+
+  def attending_users_count
+    attending_users.count
+  end
 end
