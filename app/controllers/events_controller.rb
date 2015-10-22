@@ -40,8 +40,7 @@ class EventsController < ApplicationController
     @event.user = current_user
 
     Event.where(room_id: params[:event][:room_id]).any? do |e|
-      event_range = ((e.start_time)..(e.start_time + e.duration.minutes))
-      if event_range.overlaps?((@event.start_time)..(@event.start_time + params[:event][:duration].to_i.minutes))
+      if e.event_range.overlaps?(@event.event_range)
         flash.alert = "An event is already scheduled for that time!"
         redirect_to room_path(params[:event][:room_id])and return
       end
