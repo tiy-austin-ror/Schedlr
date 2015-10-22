@@ -42,8 +42,9 @@
   <% @event.room.inspect if Rails.env.development? %>
     <% end %>
 </tbody>
-
+<% if current_user == @event.user %>
 <%= link_to 'Edit', edit_event_path(@event) %> |
+<% end %>
 <%= link_to 'Back', events_path %>
 <p><% params.inspect if Rails.env.development? %></p>
 <p><% current_user.inspect if Rails.env.development? %></p>
