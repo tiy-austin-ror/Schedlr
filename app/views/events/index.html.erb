@@ -16,6 +16,8 @@
 
     <tbody>
       <% @events.each do |event| %>
+
+        <% if event.private == false || event.is_in_private_event?(current_user) %>
         <tr>
           <td><%= event.formatted_start_time %></td>
           <td><%= event.formatted_event_duration %></td>
@@ -26,6 +28,7 @@
           <td><%= link_to 'Edit', edit_event_path(event), class: "btn btn-default" %></td>
           <td><%= link_to 'Destroy', event, class: "btn btn-default", method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>

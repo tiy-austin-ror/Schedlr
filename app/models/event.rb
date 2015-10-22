@@ -4,6 +4,8 @@ class Event < ActiveRecord::Base
   belongs_to :user
   has_many :invitees
   has_many :attendees
+  has_many :attending_users, through: :attendees, source: :user
+  has_many :invited_users, through: :invitees, source: :user
 
   def formatted_start_time
     self.start_time.strftime("%B %d, %Y @ %I:%M%P")
@@ -11,6 +13,10 @@ class Event < ActiveRecord::Base
 
   def formatted_event_duration
     "#{self.duration} minutes"
+  end
+
+  def is_in_private_event?(current_user)
+    self.attending_users.include?(current_user) || self.invited_users.include?(current_user)
   end
 
   def self.to_csv
