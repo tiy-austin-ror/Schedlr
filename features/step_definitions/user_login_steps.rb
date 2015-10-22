@@ -1,5 +1,7 @@
 Given(/^I am an existing User$/) do
+  c = Company.create(name: 'Ryans fabulous coding co.')
   user = User.new(email: 'user@example.com')
+  user.company = c
   user.password = 'password'
   user.save!
 end
