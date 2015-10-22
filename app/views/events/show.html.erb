@@ -23,7 +23,8 @@
   <%= @event.user.full_name.titleize %>
 </p>
 <p>Click Button to attend this event.</p>
-<%= link_to "Attend event", attendees_path(:attendee => { :event_id => @event.id }), :method => :post, class: 'btn btn-default btn-md' if @event.attendees.count < @event.room.capacity %>
+<%= link_to "Attend event", attendees_path(:attendee => { :event_id => @event.id }),
+ :method => :post, class: 'btn btn-default btn-md' if @event.attendees.count < @event.room.capacity %>
 <br>
 <tbody>
   <tr>
@@ -31,7 +32,8 @@
       <td><% current_user.company.users.each do |user| %></td>
 
       <td><%= user.first_name %> <%= user.last_name %></td>
-      <td><%= react_component('InviteButton', userID: user.id, eventID: @event.id ) if @event.at_total_occupancy? %></td>
+      <td><%= react_component('InviteButton', userID: user.id, eventID: @event.id )
+       if @event.at_total_occupancy? %></td>
   </tr>
   <%= @event.room.inspect if Rails.env.development? %>
     <% end %>
