@@ -1,8 +1,8 @@
 
-<h1> User Dashboard for <%= current_user.full_name %> </h1><br>
+<h1> Dashboard for <%= current_user.full_name %> </h1><br>
 <div class="row">
-  <div class="well col-md-4">
-    <h1>Events</h1>
+  <div class="well col-md-12">
+    <h2>Your upcoming events</h2>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -10,15 +10,15 @@
           <th>Duration</th>
           <th>Description</th>
           <th>Room</th>
-          <th colspan="3"></th>
+          <th colspan="8"></th>
         </tr>
       </thead>
 
       <tbody>
         <% @events.each do |event| %>
           <tr>
-            <td><%= event.start_time %></td>
-            <td><%= event.duration %></td>
+            <td><%= event.formatted_start_time %></td>
+            <td><%= event.formatted_event_duration %></td>
             <td><%= link_to event.description, event_path(event) %></td>
             <td><%= event.room %></td>
           </tr>
