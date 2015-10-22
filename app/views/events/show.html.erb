@@ -14,9 +14,13 @@
 
 <div class = 'attendees'>
 <p>Click Button to attend this event.</p>
+<%if Attendee.where(event_id: @event.id, user_id: current_user.id).exists?%>
+<p> "You are attending this event!" </p>
+<%else%>
 <%= link_to "Attend event", attendees_path(:attendee => { :event_id => @event.id }), :method => :post, class: 'btn btn-default btn-md' if @event.attendees.count < @event.room.capacity %>
 <%@event.attendees.each do |attendee|%>
 <p><%=attendee.user.first_name + ' ' + attendee.user.last_name%></p>
+<%end%>
 <%end%>
 </div>
 
