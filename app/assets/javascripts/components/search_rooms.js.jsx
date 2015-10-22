@@ -41,7 +41,7 @@ var Search = React.createClass({
           <p>
             <input className='form-control' type='text'
               onChange={this.handleChange} value={this.state.search}
-              placeHolder='search rooms' />
+              placeholder='search rooms' />
           </p>
           <div className="table-responsive">
             <table className="table table-hover">
