@@ -42,7 +42,7 @@ var Search = React.createClass({
               {this.state.filtered_rooms.map(function (room) {
                 return (
                   <tr>
-                    <td> { room.name } </td>
+                    <td><a href={'/rooms/' + room.id}>{ room.name } </a></td>
                     <td> { room.capacity }</td>
                     <td> { room.building.name }</td>
                   </tr>
