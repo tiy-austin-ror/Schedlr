@@ -1,0 +1,34 @@
+
+<h1> Dashboard for <%= current_user.full_name %> </h1><br>
+<div class="row">
+  <div class="well col-md-12">
+    <% if current_user.events.any? %>
+    <h2>Your upcoming events</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Duration</th>
+          <th>Event Description</th>
+          <th>Room</th>
+          <th colspan="8"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @events.each do |event| %>
+          <tr>
+            <td><%= event.formatted_start_time %></td>
+            <td><%= event.formatted_event_duration %></td>
+            <td><%= link_to event.description, event_path(event) %></td>
+            <td><%= event.room.name %></td>
+          </tr>
+          <% end %>
+        <% else %>
+        <p> You have no events </p>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- <%# paginate @events %> -->

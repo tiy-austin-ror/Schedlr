@@ -4,7 +4,7 @@ class SitesController < ApplicationController
   # GET /sites
   # GET /sites.json
   def index
-    @sites = Site.all
+    @sites = current_user.company.sites.order(:name).page params[:page]
   end
 
   # GET /sites/1

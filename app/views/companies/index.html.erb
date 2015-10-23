@@ -1,5 +1,4 @@
-<div class="container">
-  <h1>Listing Companies</h1>
+<h1>Listing Companies</h1>
   <div class="table-responsive">
     <table class="table table-hover">
       <thead>
@@ -8,6 +7,29 @@
           <th colspan="3"></th>
         </tr>
       </thead>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= company.name %></td>
+        <td><%= link_to 'Show', company %></td>
+        <td><%= link_to 'Edit', edit_company_path(company) %></td>
+        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
 
       <tbody>
         <% @companies.each do |company| %>
@@ -22,5 +44,5 @@
     </table>
   </div>
   <br>
-</div>
+
 <%= link_to 'New Company', new_company_path %>

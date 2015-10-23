@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.2.1'
 
-gem 'react-rails'
-
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
@@ -24,18 +22,30 @@ gem 'turbolinks'
 
 gem 'devise'
 gem 'react-rails'
-gem "pundit"
+gem 'pundit'
+gem 'wicked_pdf'
 
+gem 'refile', require: 'refile/rails'
+gem 'refile-mini_magick'
+gem 'refile-s3'
+
+
+gem 'codeclimate-test-reporter', group: :test, require: false
 group :development, :test do
   gem 'pry'
+  gem 'cucumber-rails', require: false
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'wkhtmltopdf-binary'
 end
 
 group :production do
   gem 'puma'
   gem 'rails_12factor'
+  gem 'wkhtmltopdf-heroku'
 end

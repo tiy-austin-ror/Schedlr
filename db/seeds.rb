@@ -6,7 +6,7 @@
           admin = User.new({
             first_name:   Faker::Name.first_name,
             last_name:    Faker::Name.last_name,
-            email:        Faker::Internet.safe_email,
+            email:        "admin-#{n + 1}@example.com",
             department:   Faker::Commerce.department,
             admin:        true,
             company_id:   company.id
@@ -15,11 +15,11 @@
             admin.password = "password"
             admin.save!
 
-          5.times do
+          5.times do |u|
             user = User.new({
                     first_name:   Faker::Name.first_name,
                     last_name:    Faker::Name.last_name,
-                    email:        Faker::Internet.safe_email,
+                    email:        "user-#{u + 1}-Co#{n + 1}@example.com",
                     department:   Faker::Team.state,
                     admin:        false,
                     company_id:   company.id
@@ -47,12 +47,18 @@
                     building_id:  building.id })
 
               5.times do
-                Event.create({
+                event = Event.create({
                       start_time:   Faker::Time.forward(5, :morning),
                       duration:     rand(30..60),
                       description:  Faker::Lorem.sentence,
                       room_id:      room.id,
-                      user_id:      user.id })
+                      user_id:      user.id,
+                      private:      false})
+
+                Attendee.create({
+                      event_id: event.id,
+                      user_id: user.id
+                  })
                 end
               end
             end

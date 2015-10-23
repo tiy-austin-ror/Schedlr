@@ -4,12 +4,24 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.order(:start_time).page params[:page]
   end
 
+  def reports
+    @events = Event.all
+    respond_to do |format|
+      format.html
+      format.csv { render text: @events.to_csv }
+      format.pdf do
+        render pdf: 'Events',
+               template: 'dashboard/show.pdf.erb'
+      end
+    end
+  end
   # GET /events/1
   # GET /events/1.json
   def show
+
   end
 
   # GET /events/new
@@ -25,6 +37,14 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+    @event.user = current_user
+
+    Event.where(room_id: params[:event][:room_id]).any? do |e|
+      if e.event_range.overlaps?(@event.event_range)
+        flash.alert = "An event is already scheduled for that time!"
+        redirect_to room_path(params[:event][:room_id]) and return
+      end
+    end
 
     respond_to do |format|
       if @event.save
@@ -36,6 +56,7 @@ class EventsController < ApplicationController
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /events/1
@@ -70,6 +91,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:start_time, :duration, :description, :room_id, :user_id)
+      params.require(:event).permit(:start_time, :duration, :description, :room_id, :user_id, :private)
     end
 end

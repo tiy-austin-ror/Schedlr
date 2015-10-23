@@ -15,7 +15,8 @@ var ScheduleEventForm = React.createClass({
             user_id: this.props.userID,
             room_id: this.props.roomID,
             duration: this.state.Duration,
-            description: this.state.Description
+            description: this.state.Description,
+            start_time: this.state.start_time
           }
         }
           }).done(function () {
@@ -29,6 +30,10 @@ var ScheduleEventForm = React.createClass({
 
   changeDescription: function (e) {
     this.setState({ Description: e.target.value });
+  },
+
+  changeDateTime: function (e) {
+    this.setState({ start_time: e.target.value });
   },
 
   render: function () {
@@ -51,7 +56,13 @@ var ScheduleEventForm = React.createClass({
               value={this.state.Description}
               className={this.state.className}/>
 
-            <div className='btn btn-default' onClick={this.handleClick}>Schedule An Event!</div>
+            <label htmlFor='Start'>Date and Time</label>
+            <input id='datetime' type="datetime"
+              onChange={this.changeDateTime}
+              value={this.state.start_time}
+              className={this.state.className}/>
+
+            <div className='btn btn-default btn-primary' onClick={this.handleClick}>Schedule An Event!</div>
           </div>
         );
     }

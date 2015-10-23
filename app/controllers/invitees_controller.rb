@@ -2,13 +2,8 @@ class InviteesController < ApplicationController
   before_action :set_invitee, only: [:show, :edit, :update, :destroy]
 
   # GET /invitees
-  def index
-    @invitees = Invitee.all
-  end
 
   # GET /invitees/1
-  def show
-  end
 
   # GET /invitees/new
   def new
@@ -25,7 +20,14 @@ class InviteesController < ApplicationController
 
     if @invitee.save
       InviteMailer.send_invite(@invitee).deliver_now
-      redirect_to :back, notice: 'Invitee was successfully created.'
+      respond_to do |f|
+        f.html do
+          redirect_to :back, notice: 'Invitee was successfully created.'
+        end
+        f.json do
+          render json: { message: 'Invitee was successfully created.' }.to_json, status: 200
+        end
+      end
     else
       render :new
     end
@@ -54,6 +56,6 @@ class InviteesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def invitee_params
-      params.require(:invitee).permit(:event_id, :user_id)
+      params.require(:invitee).permit(:event_id, :user_id, :accepted)
     end
 end

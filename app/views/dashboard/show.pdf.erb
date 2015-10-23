@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <%= wicked_pdf_stylesheet_link_tag "application" -%>
+  </head>
+  <body>
+    <h1>Company Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start time</th>
+      <th>Description</th>
+      <th>Room</th>
+      <th>Host</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.formatted_start_time %></td>
+        <td><%= event.description %></td>
+        <td><%= event.room.name %></td>
+        <td><%= event.user.first_name %> <%= event.user.last_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+  </body>
+</html>
