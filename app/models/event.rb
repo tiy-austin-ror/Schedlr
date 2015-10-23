@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   paginates_per 8
   belongs_to :room
-  belongs_to :user
+  belongs_to :user, counter_cache: true
   has_many :invitees
   has_many :attendees
   has_many :attending_users, through: :attendees, source: :user
