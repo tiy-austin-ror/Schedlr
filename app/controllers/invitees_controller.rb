@@ -20,7 +20,14 @@ class InviteesController < ApplicationController
 
     if @invitee.save
       InviteMailer.send_invite(@invitee).deliver_now
-      redirect_to :back, notice: 'Invitee was successfully created.'
+      respond_to do |f|
+        f.html do
+          redirect_to :back, notice: 'Invitee was successfully created.'
+        end
+        f.json do
+          render json: { message: 'Invitee was successfully created.' }.to_json, status: 200
+        end
+      end
     else
       render :new
     end
