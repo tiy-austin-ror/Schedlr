@@ -4,8 +4,8 @@ class BuildingsController < ApplicationController
   # GET /buildings
   # GET /buildings.json
   def index
-    @buildings = Building.order(:name).page params[:page]
-
+    company = Company.find(current_user.company_id)
+    @buildings = company.buildings
   end
 
   # GET /buildings/1
