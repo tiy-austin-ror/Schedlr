@@ -20,7 +20,7 @@
             <td><%= event.formatted_start_time %></td>
             <td><%= event.formatted_event_duration %></td>
             <td><%= link_to event.description, event_path(event) %></td>
-            <td><%= event.room %></td>
+            <td><%= event.room.name %></td>
           </tr>
         <% end %>
       </tbody>
