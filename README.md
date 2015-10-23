@@ -97,13 +97,13 @@ This command will build:
 - To be able to view our project, we need to set our `RACK_ENV` to `development`. To do this, do `eb setenv RACK_ENV=development`.
 - Do `eb open` to reload the site.
 
-		You'll see:
+You'll see:
 
-			`$ eb open
-			Ruby on Rails: Welcome aboard
-			...`
+  	`$ eb open
+  	Ruby on Rails: Welcome aboard
+  	...`
 
-		...and that's all, folks
+...and that's all, folks
 
 Simply put, AWS is for finished production code. It's NOT a developer tool. In my next installment, I'll discuss the use of SSH to pull code updates from  Git. (The `eb deploy` command of the CLI is iffy, at best.)
 
