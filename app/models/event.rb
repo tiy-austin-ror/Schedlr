@@ -31,7 +31,7 @@ class Event < ActiveRecord::Base
   end
 
   def at_total_occupancy?
-    self.attendees.count < self.room.capacity
+    self.attendees.count == self.room.capacity
   end
 
   def event_range

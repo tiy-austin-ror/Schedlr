@@ -8,11 +8,6 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-  def rsvp
-    render 'layouts/rsvp.html.erb'
-  end
-
-
   private
 
   def user_not_authorized
@@ -21,7 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) << :first_name << :last_name << :department
+    devise_parameter_sanitizer.for(:sign_up) << :first_name << :last_name << :department << :company_id
   end
 
 end
