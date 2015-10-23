@@ -5,16 +5,15 @@
     <%= wicked_pdf_stylesheet_link_tag "application" -%>
   </head>
   <body>
-    <h1>Listing Events</h1>
+    <h1>Company Events</h1>
 
 <table>
   <thead>
     <tr>
       <th>Start time</th>
-      <th>Duration</th>
       <th>Description</th>
       <th>Room</th>
-      <th>User</th>
+      <th>Host</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,14 +21,10 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.start_time %></td>
-        <td><%= event.duration %></td>
+        <td><%= event.formatted_start_time %></td>
         <td><%= event.description %></td>
         <td><%= event.room.name %></td>
         <td><%= event.user.first_name %> <%= event.user.last_name %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -37,6 +32,5 @@
 
 <br>
 
-<%= link_to 'New Event', new_event_path %>
   </body>
 </html>
