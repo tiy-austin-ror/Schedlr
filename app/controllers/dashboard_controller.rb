@@ -6,7 +6,7 @@ class DashboardController < ApplicationController
 
   def index
     @rooms = current_user.company.rooms
-    @events = current_user.company.events
+    @events = current_user.company.events.order(:start_time).page params[:page]
     @invitees = current_user.company.invitees
   end
 end
