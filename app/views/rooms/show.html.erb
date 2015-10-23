@@ -13,25 +13,51 @@
           <h3><strong>Building:</strong></h3>
           <h4><%= @room.building.name.titleize %></h4>
         </p>
+        <%= image_tag attachment_url(@room, :room_image, :fill, 300, 300, format: "jpg") %>
       </div>
     </div>
 
-    <p class="text-left">
-        <%= image_tag attachment_url(@room, :room_image, :fill, 300, 300, format: "jpg") %>
-      </p>
+
+    <div class="forms" id="new-event">
+      <h3><center>Create An Event!</center></h3>
+      <%= form_for Event.new do |f| %>
+      <div class="field">
+        <%= f.label :start_time %><br>
+        <%= f.datetime_select :start_time %>
+      </div>
+      <div class="field">
+        <%= f.label :duration %><br>
+        <%= f.number_field :duration %>
+      </div>
+      <div class="field">
+        <%= f.label :description %><br>
+        <%= f.text_field :description %>
+      </div>
+      <div>
+        <%= f.label :private? %>
+        <%= f.check_box :private %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+      <%= f.hidden_field(:room_id, value: @room.id) %>
     </div>
 
-  <div class="table-responsive">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Who Made The Reservation</th>
-          <th>Start Time</th>
-          <th>Duration</th>
-          <th>Description</th>
-        </tr>
-      </thead>
+  <div class="container">
+    <div id="event-show-table">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <h2><center>Upcoming Events!</center></h2>
+          <thead>
+            <tr>
+              <th>Event Organizer</th>
+              <th>Start Time</th>
+              <th>Duration</th>
+              <th>Description</th>
+            </tr>
+          </thead>
 
+<<<<<<< 62ad8b6fbe3f57b2e92e07644e9180512a6cbb23
     <div class="forms" id="new-event">
       <h2>Create a New Event!</h2>
       <%= form_for Event.new do |f| %>
@@ -71,6 +97,8 @@
             </tr>
           </thead>
 
+=======
+>>>>>>> Fixed merge conflict
           <tbody>
             <% @room.events.each do |event| %>
               <tr>
