@@ -1,34 +1,34 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @building.name.titleize %>
-</p>
-
-<p>
-  <strong>Street:</strong>
-  <%= @building.street.titleize %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @building.city.titleize %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @building.state.titleize %>
-</p>
-
-<p>
-  <strong>Zip:</strong>
-  <%= @building.zip %>
-</p>
-
-<p>
-  <strong>Site:</strong>
-  <%= @building.site.name.titleize %>
-</p>
-
-<%= link_to 'Edit', edit_building_path(@building) %> |
-<%= link_to 'Back', buildings_path %>
+<div>
+  <h1>
+    <strong><%= @building.name.titleize %></strong>
+  </h1>
+  </div>
+<div class="row">
+ <div class="well col-md-6">
+    <ul>
+      <li><h1>Address</h1></li>
+          <li>1120 <%= @building.street.titleize %></li>
+          <li><%= @building.city.titleize %>, <%= @building.state.titleize %></li>
+          <li><%= @building.zip %></li>
+        </ul>
+    </div>
+  <div class="well col-md-6">
+  <ul>
+    <li><h1>Rooms</h1></li>
+        <%= @building.rooms.each do |room| %>
+        <br>
+          <li><h4><%= link_to room.name, room %></h4></li>
+        <% end %>
+      </ul>
+  </div>
+</div>
+<div2>
+  <p>
+    <strong>
+      <%= link_to 'Site', site_path(@building.site_id) %> |
+      <%=link_to 'Rooms', rooms_path  %> |
+      <%= link_to 'Back', buildings_path %>
+    </strong>
+  </p>
+</div2>

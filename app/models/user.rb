@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def self.top
+    order('attendees_count DESC').limit(3)
+  end
 end
