@@ -5,81 +5,37 @@
 
 <div class="row">
   <div class="well col-md-4">
-    <h1>Rooms</h1>
-
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Capacity</th>
-          <th>Building.name</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
+  <ul>
+    <li><h1>Rooms</h1></li>
         <% @rooms.each do |room| %>
-          <tr>
-            <td><%= room.name %></td>
-            <td><%= room.capacity %></td>
-            <td><%= room.building.name %></td>
-            <td><%= link_to 'Show', room %></td>
-            <td><%= link_to 'Edit', edit_room_path(room) %></td>
-          </tr>
+          <br>
+          <li><h4><%= link_to room.name, room %></h4></li>
+          <li>Cap: <%= room.capacity %></li>
+          <li>Building: <%= room.building.name %></li>
         <% end %>
-      </tbody>
-    </table>
+      </ul>
   </div>
   <div class="well col-md-4">
-    <h1>Events</h1>
-
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Start time</th>
-          <th>Duration</th>
-          <th>Description</th>
-          <th>Room</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
+  <ul>
+    <li><h1>Events</h1></li>
         <% @events.each do |event| %>
-          <tr>
-            <td><%= event.start_time %></td>
-            <td><%= event.duration %></td>
-            <td><%= event.description %></td>
-            <td><%= event.room.name %></td>
-            <td><%= link_to 'Show', event %></td>
-            <td><%= link_to 'Edit', edit_event_path(event) %></td>
-          </tr>
+          <br>
+          <li><h4><%= link_to event.room.name, event %>, <%= link_to event.formatted_start_time, event %></h4></li>
+          <li><%= event.description.truncate(40) %></li>
+          <li><%= event.duration %> minutes</li>
         <% end %>
-      </tbody>
-    </table>
+  </ul>
   </div>
   <div class="well col-md-4">
-    <h1>Invitees</h1>
-
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Event</th>
-          <th>User</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @invitees.each do |invitee| %>
-          <tr>
-            <td><%= invitee.event_id %></td>
-            <td><%= invitee.user_id %></td>
-            <td><%= link_to 'Show', invitee %></td>
-            <td><%= link_to 'Edit', edit_invitee_path(invitee) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <ul>
+    <li><h1>Invitees</h1></li>
+          <% @invitees.each do |invitee| %>
+          <br>
+            <li><h4><%= link_to invitee.user.full_name, invitee %></h4></li>
+            <li><%= invitee.event.formatted_start_time %></li>
+            <li>in the <%= invitee.event.room.name %> room</li>
+          <% end %>
+      </ul>
   </div>
 </div>
+<%= paginate @events %>
