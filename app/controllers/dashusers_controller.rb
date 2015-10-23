@@ -5,7 +5,9 @@ class DashusersController < ApplicationController
   end
 
   def index
-    @events = current_user.company.events
+    @events = current_user.company.events.limit(10).offset(10)
+    # @events.order(:start_time).page params[:page]
+
   end
 
 end
