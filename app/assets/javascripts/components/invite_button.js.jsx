@@ -6,6 +6,7 @@ var InviteButton = React.createClass({
   },
 
   handleClick: function (event) {
+    console.log('Started');
       $.ajax({
         url: '/invitees',
         method: "POST",
@@ -15,11 +16,17 @@ var InviteButton = React.createClass({
             user_id: this.props.userID,
             event_id: this.props.eventID,
           }
+        },
+        success: function () {
+            console.log('succeeded!');
+            this.setState({ invited: true });
+        }.bind(this),
+        error: function () {
+          console.log('error occured');
         }
-          }).done(function () {
-          this.setState({ invited: true });
-          }.bind(this));
+    });
   },
+
 
   render: function () {
     if (this.state.invited) {
