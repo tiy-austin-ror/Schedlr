@@ -1,18 +1,20 @@
   <div class="row">
     <div class="colspan-3">
-      <p class="text-left">
-        <h1><%= @room.name.titleize %><h1>
-      </p>
+      <div class="card">
+        <p class="text-left">
+          <h1><%= @room.name.titleize %><h1>
+        </p>
 
-      <p class="text-left">
-        <strong>Capacity:</strong>
-        <%= @room.capacity %>
-      </p>
+        <p class="text-left">
+          <h3><strong>Capacity:</strong></h3>
+          <h4><%= @room.capacity %></h4>
+        </p>
 
-      <p class="text-left">
-        <strong>Building:</strong>
-        <%= @room.building.name.titleize %>
-      </p>
+        <p class="text-left">
+          <h3><strong>Building:</strong></h3>
+          <h4><%= @room.building.name.titleize %></h4>
+        </p>
+      </div>
     </div>
 
     <p class="text-left">
@@ -31,43 +33,61 @@
         </tr>
       </thead>
 
-      <tbody>
-        <% @room.events.each do |event| %>
-          <tr>
-            <%= link_to event do %>
-              <td><%= event.user.full_name.titleize %></td>
-              <td><%= link_to event.formatted_start_time %></td> <!--helpful resource - https://hackhands.com/format-datetime-ruby/-->
-              <td><%= link_to event.formatted_event_duration %></td>
-              <td><%= link_to event.description %></td>
+    <div class="forms" id="new-event">
+      <h2><center>Upcoming Events!</center><h2>
+      <%= form_for Event.new do |f| %>
+      <div class="field">
+        <%= f.label :start_time %><br>
+        <%= f.datetime_select :start_time %>
+      </div>
+      <div class="field">
+        <%= f.label :duration %><br>
+        <%= f.number_field :duration %>
+      </div>
+      <div class="field">
+        <%= f.label :description %><br>
+        <%= f.text_field :description %>
+      </div>
+      <div>
+        <%= f.label :private? %>
+        <%= f.check_box :private %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+      <%= f.hidden_field(:room_id, value: @room.id) %>
+    </div>
+
+  <div class="container">
+    <div id="event-show-table">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Who Made The Reservation</th>
+              <th>Start Time</th>
+              <th>Duration</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @room.events.each do |event| %>
+              <tr>
+                <%= link_to event do %>
+                  <td><%= event.user.full_name.titleize %></td>
+                  <td><%= link_to event.formatted_start_time %></td> <!--helpful resource - https://hackhands.com/format-datetime-ruby/-->
+                  <td><%= link_to event.formatted_event_duration %></td>
+                  <td><%= link_to event.description %></td>
+                <% end %>
+              </tr>
             <% end %>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 
-<%= form_for Event.new do |f| %>
-
-<div class="field">
-  <%= f.label :start_time %><br>
-  <%= f.datetime_select :start_time %>
-</div>
-<div class="field">
-  <%= f.label :duration %><br>
-  <%= f.number_field :duration %>
-</div>
-<div class="field">
-  <%= f.label :description %><br>
-  <%= f.text_field :description %>
-</div>
-<div>
-  <%= f.label :private? %>
-  <%= f.check_box :private %>
-</div>
-<div class="actions">
-  <%= f.submit %>
-</div>
-<%= f.hidden_field(:room_id, value: @room.id) %>
 
 <% end %>
 <%= link_to 'Edit', edit_room_path(@room) %> |
