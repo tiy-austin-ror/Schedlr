@@ -73,17 +73,21 @@
           <li>Building: <%= room.building.name %></li>
         <% end %>
       </ul>
+      <br>
+      <%= paginate @rooms, :param_name => :page_rooms %>
   </div>
   <div class="well col-md-4">
   <ul>
     <li><h1>Events</h1></li>
         <% @events.each do |event| %>
           <br>
-          <li><h4><%= link_to event.room.name, event %>, <%= link_to event.formatted_start_time, event %></h4></li>
+          <li><h4><%= link_to event.room.name, event %>, <%= link_to event.start_time.strftime("%A %d, @ %I:%M%P"), event %></h4></li>
           <li><%= event.description.truncate(40) %></li>
           <li><%= event.duration %> minutes</li>
         <% end %>
   </ul>
+  <br>
+  <%= paginate @events, :param_name => :page_events %>
   </div>
   <div class="well col-md-4">
     <ul>
@@ -91,10 +95,11 @@
           <% @invitees.each do |invitee| %>
           <br>
             <li><h4><%= link_to invitee.user.full_name, invitee %></h4></li>
-            <li><%= invitee.event.formatted_start_time %></li>
+            <li><%= invitee.event.start_time.strftime("%A %d, @ %I:%M%P") %></li>
             <li>in the <%= invitee.event.room.name %> room</li>
           <% end %>
       </ul>
+      <br>
+      <%= paginate @invitees, :param_name => :page_invitees %>
   </div>
 </div>
-<%= paginate @events %>

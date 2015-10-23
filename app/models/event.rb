@@ -1,6 +1,8 @@
 class Event < ActiveRecord::Base
-  paginates_per 8
+
+  paginates_per 5
   belongs_to :room, counter_cache: true
+
   belongs_to :user
   has_many :invitees
   has_many :attendees
