@@ -24,6 +24,7 @@
           <td><%= building.state.titleize %></td>
           <td><%= building.zip %></td>
           <td><%= building.site.name.titleize %></td>
+          <td><%= building.site.company.name%></td>
           <td><%= link_to 'Show', building, class: "btn btn-default" %></td>
           <td><%= link_to 'Edit', edit_building_path(building), class: "btn btn-default" %></td>
           <td><%= link_to 'Destroy', building, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
@@ -36,4 +37,3 @@
 <br>
 
 <%= link_to 'New Building', new_building_path %>
-<%= paginate @buildings %>
