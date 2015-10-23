@@ -5,7 +5,7 @@
   </h1>
   </div>
 <div class="row">
- <div class="well col-md-12">
+ <div class="well col-md-6">
     <ul>
       <li><h1>Address</h1></li>
           <li>1120 <%= @building.street.titleize %></li>
@@ -13,6 +13,15 @@
           <li><%= @building.zip %></li>
         </ul>
     </div>
+  <div class="well col-md-6">
+  <ul>
+    <li><h1>Rooms</h1></li>
+        <%= @building.rooms.each do |room| %>
+        <br>
+          <li><h4><%= link_to room.name, room %></h4></li>
+        <% end %>
+      </ul>
+  </div>
 </div>
 <div2>
   <p>
