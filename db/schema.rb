@@ -69,10 +69,10 @@ ActiveRecord::Schema.define(version: 20151023031724) do
     t.string   "name"
     t.integer  "capacity"
     t.integer  "building_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "room_image_id"
-    t.integer  "events_count"
+    t.integer  "events_count",  default: 0
   end
 
   add_index "rooms", ["building_id"], name: "index_rooms_on_building_id", using: :btree
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 20151023031724) do
     t.datetime "updated_at",                             null: false
     t.integer  "company_id"
     t.boolean  "admin",                  default: false
-    t.integer  "attendees_count"
+    t.integer  "attendees_count",        default: 0
   end
 
   add_index "users", ["company_id"], name: "index_users_on_company_id", using: :btree
