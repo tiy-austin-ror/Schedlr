@@ -16,7 +16,7 @@
   <div class="well col-md-6">
   <ul>
     <li><h1>Rooms</h1></li>
-        <%= @building.rooms.each do |room| %>
+        <% @building.rooms.each do |room| %>
         <br>
           <li><h4><%= link_to room.name, room %></h4></li>
         <% end %>
@@ -27,7 +27,6 @@
   <p>
     <strong>
       <%= link_to 'Site', site_path(@building.site_id) %> |
-      <%=link_to 'Rooms', rooms_path  %> |
       <%= link_to 'Back', buildings_path %>
     </strong>
   </p>
