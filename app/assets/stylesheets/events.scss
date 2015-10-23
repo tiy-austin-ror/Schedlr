@@ -5,7 +5,7 @@
 .description {
   strong {
     text-transform: uppercase;
-    }
+  }
     float:right;
     width: 40%;
     background-color: #6285CB;
@@ -33,4 +33,32 @@
   width: 55%;
   background-color: #90DAD5;
   padding:20px;
+}
+
+.card {
+  border-top: 1px;
+  border-bottom: 1px;
+  border-style: solid;
+  border-right-width: 1px;
+  border-left-width: 1px;
+  border-width: 2.5px;
+  float: left;
+  padding: 55px;
+  margin-top: 30px;
+}
+
+#new-event {
+  border-top: 1px;
+  border-bottom: 1px;
+  border-style: solid;
+  border-right-width: 1px;
+  border-left-width: 1px;
+  border-width: 2.5px;
+  padding: 22px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+#event-show-table {
+  padding-top: 50px;
 }
