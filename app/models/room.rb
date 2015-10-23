@@ -1,5 +1,5 @@
 class Room < ActiveRecord::Base
-  paginates_per 8
+  paginates_per 5
   belongs_to :building
   has_many :events
   has_many :attendees, through: :events

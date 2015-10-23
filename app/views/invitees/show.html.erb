@@ -1,12 +1,12 @@
 <h3>Please RSVP by clicking on Accept.</h3>
 <p>
   <strong>Event:</strong>
-  <%= @invitee.event_id %>
+  <%= @invitee.event.start_time.strftime("%A %d, @ %I:%M%P") %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @invitee.user_id %>
+  <%= @invitee.user.full_name %>
 </p>
 <%= react_component('AcceptButton', inviteeID: @invitee.id, userID: @invitee.user_id, eventID: @invitee.event_id)%>
 <%= link_to 'Edit', edit_invitee_path(@invitee) %>
