@@ -14,6 +14,7 @@
           <li>Building: <%= room.building.name %></li>
         <% end %>
       </ul>
+      <br>
       <%= paginate @rooms, :param_name => :page_rooms %>
   </div>
   <div class="well col-md-4">
@@ -26,6 +27,7 @@
           <li><%= event.duration %> minutes</li>
         <% end %>
   </ul>
+  <br>
   <%= paginate @events, :param_name => :page_events %>
   </div>
   <div class="well col-md-4">
@@ -38,6 +40,7 @@
             <li>in the <%= invitee.event.room.name %> room</li>
           <% end %>
       </ul>
+      <br>
       <%= paginate @invitees, :param_name => :page_invitees %>
   </div>
 </div>
