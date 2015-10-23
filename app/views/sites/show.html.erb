@@ -4,7 +4,7 @@
   <strong><%= @site.name.titleize %></strong>
 </h1>
 <div class="row">
-    <div class="well col-md-4">
+    <div class="well col-md-3">
     <ul>
       <li><h1>Location</h1></li>
           <li><%= @site.location %></li>
@@ -17,10 +17,13 @@
           <li><%= @site.company.name.titleize %></li>
         </ul>
     </div>
-     <div class="well col-md-3">
+     <div class="well col-md-4">
     <ul>
       <li><h1>Buildings</h1></li>
-          <li><%= @site.company.name.titleize %></li>
+        <% @site.buildings.each do |building| %>
+        <br>
+          <li><h4><%= link_to building.name, building %></h4></li>
+        <% end %>
         </ul>
     </div>
   </div>
