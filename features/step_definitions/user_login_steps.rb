@@ -20,6 +20,7 @@ When(/^I attempt to sign in$/) do
 end
 
 When(/^I fill out the new user form$/) do
+  select("Compnay", from: 'Test Company 1')
   fill_in("First name", with: 'jane')
   fill_in("Last name", with: 'doe')
   fill_in("Department", with: 'foobar')
