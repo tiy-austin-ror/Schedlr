@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
   paginates_per 8
-  belongs_to :room
+  belongs_to :room, counter_cache: true
   belongs_to :user
   has_many :invitees
   has_many :attendees
@@ -34,5 +34,13 @@ class Event < ActiveRecord::Base
 
   def event_range
     (start_time)..(start_time + duration.minutes)
+  end
+
+  def end_time
+    start_time + duration.minutes
+  end
+
+  def attending_users_count
+    attending_users.count
   end
 end

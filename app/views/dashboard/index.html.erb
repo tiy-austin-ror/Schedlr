@@ -1,5 +1,64 @@
 
 <h1> Admin Dashboard </h1><br>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Most Popular Events</h3>
+  </div>
+  <div class="panel-body">
+      <!-- Table -->
+   <table class="table">
+     <thead>
+       <th>Building</th>
+       <th>Room</th>
+       <th>Events</th>
+       <th colspan="3"></th>
+     </thead>
+
+     <tbody>
+       <% Room.top.each do |room| %>
+        <tr>
+          <td><%= room.building.name %></td>
+          <td><%= room.name %></td>
+          <td><%= room.events.count %></td>
+        </tr>
+       <% end %>
+     </tbody>
+
+   </table>
+
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Most Popular Users</h3>
+  </div>
+  <div class="panel-body">
+      <!-- Table -->
+   <table class="table">
+     <thead>
+       <th>Company</th>
+       <th>User</th>
+       <th>Events Attending</th>
+       <th colspan="3"></th>
+     </thead>
+
+     <tbody>
+       <% User.top.each do |user| %>
+        <tr>
+          <td><%= user.company.name %></td>
+          <td><%= user.full_name %></td>
+          <td><%= user.attendees.count %></td>
+        </tr>
+       <% end %>
+     </tbody>
+
+   </table>
+
+  </div>
+</div>
+
 <p><%= link_to 'Export Events to CSV', events_csv_path(format: "csv"), class: "btn btn-default" %></p>
 <p><%= link_to 'Export Events to PDF', pdf_path(format: "pdf"), class: "btn btn-default" %></p>
 
