@@ -16,7 +16,7 @@
      </thead>
 
      <tbody>
-       <% Room.joins(:events).group("events.room_id, room.id").order("count(events.room_id) desc") do |room| %>
+       <% Room.top.each do |room| %>
         <tr>
           <td><%= room.building.name %></td>
           <td><%= room.name %></td>
